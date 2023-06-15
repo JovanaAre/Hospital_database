@@ -9,7 +9,7 @@ import org.unibl.etf.bp.hospitalis.entity.ZdravstvenoOsiguranje;
 public class ZdravstvenoOsiguranjeTableModel extends AbstractTableModel {
 	
 	List<ZdravstvenoOsiguranje> podaci;
-	String[] kolone = new String[] { "Identifikator", "Davalac osiguranja", "Adresa", "Telefon"};
+	String[] kolone = new String[] { "Davalac osiguranja", "Adresa", "Telefon"};
 
 	public ZdravstvenoOsiguranjeTableModel(List<ZdravstvenoOsiguranje> podaci) {
 		setPodaci(podaci);
@@ -42,12 +42,10 @@ public class ZdravstvenoOsiguranjeTableModel extends AbstractTableModel {
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		ZdravstvenoOsiguranje red = podaci.get(rowIndex);
 		if (columnIndex == 0)
-			return red.getIdOsiguranja();
-		else if (columnIndex == 1)
 			return red.getDavalacOsiguranja();
-		else if (columnIndex == 2)
+		else if (columnIndex == 1)
 			return red.getAdresa();
-		else if (columnIndex == 3)
+		else if (columnIndex == 2)
 			return red.getTelefon();
 		else
 			return null;

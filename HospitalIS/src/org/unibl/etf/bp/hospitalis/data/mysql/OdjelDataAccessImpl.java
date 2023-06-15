@@ -33,8 +33,8 @@ public class OdjelDataAccessImpl implements OdjelDataAccess {
 			+ "inner join zaposleni z on z.JMB=d.JMB "
 			+ "inner join med_sestra_tehnicar mst on mst.JMB=o.JMBGlavneMedSestreTehnicara "
 			+ "inner join zaposleni za on za.JMB=mst.JMB "
-			+ "group by o.IdOdjela "
-			+ "order by o.IdOdjela desc; ";*/
+			+ "order by o.IdOdjela asc; ";*/
+	
 	String query = "SELECT * FROM odjel_doktor_med_tehnicar";
 		
 		try {
@@ -60,7 +60,7 @@ public class OdjelDataAccessImpl implements OdjelDataAccess {
 	}
 	
 	
-/*	@Override
+	@Override
 	public Odjel odjel(int idOdjela) {
 		Odjel retVal = null;
 		Connection conn = null;
@@ -74,17 +74,19 @@ public class OdjelDataAccessImpl implements OdjelDataAccess {
 				+ "inner join zaposleni z on z.JMB=d.JMB "
 				+ "inner join med_sestra_tehnicar mst on mst.JMB=o.JMBGlavneMedSestreTehnicara "
 				+ "inner join zaposleni za on za.JMB=mst.JMB "
+				+ "WHERE o.IdOdjela=? "
 				+ "order by o.IdOdjela desc; ";
 		try {
 			conn = ConnectionPool.getInstance().checkOut();
 			ps = conn.prepareStatement(query);
-			ps.setInt(1, idPredmeta);
+			ps.setInt(1, idOdjela);
 			rs = ps.executeQuery();
 
 			if (rs.next())
-				retVal = new Predmet(rs.getInt(1), rs.getString(2),
-						rs.getByte(3), new Fakultet(rs.getString(4),
-								rs.getString(5)));
+				retVal = new Odjel(rs.getInt(1), rs.getString(2), rs.getString(3), new Doktor(new Zaposleni(rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(8),
+				rs.getString(9), rs.getDouble(10), rs.getString(11), rs.getString(12)), rs.getString(13)),new MedicinskiTehnicar(new Zaposleni(rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getDate(18),
+				rs.getString(19), rs.getDouble(20), rs.getString(21), rs.getString(22)), rs.getString(23)));
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			MySQLUtilities.getInstance().showSQLException(e);
@@ -93,7 +95,7 @@ public class OdjelDataAccessImpl implements OdjelDataAccess {
 			MySQLUtilities.getInstance().close(ps, rs);
 		}
 		return retVal;
-	}*/
+	}
 
 	@Override
 	public List<Odjel> odjeli(String nazivOdjela) {

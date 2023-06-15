@@ -14,6 +14,36 @@ import org.unibl.etf.bp.hospitalis.entity.Zaposleni;
 public class ZaposleniDataAccessImpl implements ZaposleniDataAccess{
 	
 	@Override
+	public Zaposleni zaposlen(String jmbZaposlenog) {
+		Zaposleni retVal = null;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		String query = "SELECT JMB, Ime, Prezime, Email, DatumRodjenja, Adresa, Plata, Pol, Telefon " + 
+				"FROM zaposleni " + 
+				"WHERE JMB=? " + 
+				"ORDER BY Prezime ASC; ";
+		try {
+			conn = ConnectionPool.getInstance().checkOut();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, jmbZaposlenog);
+			rs = ps.executeQuery();
+
+			if (rs.next())
+				retVal = new Zaposleni(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
+						rs.getString(6), rs.getDouble(7), rs.getString(8), rs.getString(9));
+		} catch (SQLException e) {
+			e.printStackTrace();
+			MySQLUtilities.getInstance().showSQLException(e);
+		} finally {
+			ConnectionPool.getInstance().checkIn(conn);
+			MySQLUtilities.getInstance().close(ps, rs);
+		}
+		return retVal;
+	}
+	
+	@Override
 	public List<Zaposleni> zaposleni(String jmb) {
 		List<Zaposleni> retVal = new ArrayList<Zaposleni>();
 		Connection conn = null;

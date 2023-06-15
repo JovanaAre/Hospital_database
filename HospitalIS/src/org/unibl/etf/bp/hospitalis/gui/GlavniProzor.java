@@ -31,19 +31,24 @@ public class GlavniProzor extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu mnAplikacija;
 	private JMenuItem mntmIzlaz;
-	private JMenu mnSifarnici;
-	private JMenuItem mntmLijekovi;
-	private JMenuItem mntmZdravstvenaOsiguranja;
-	private JMenuItem mntmKontaktOsobe;
+	// private JMenu mnSifarnici;
+    private JMenu mnTelefoniOdjela;
+    private JMenuItem mntmTelefoniOdjela;
+	private JMenu mnOsobljeIOdjeli;
 	private JMenuItem mntmZaposleni;
 	private JMenuItem mntmDoktori;
 	private JMenuItem mntmMedicinskiTehnicari;
 	private JMenuItem mntmOdjeli;
-//	private JMenuItem mntmFakulteti;
-//	private JMenuItem mntmPredmeti;
-//	private JMenuItem mntmStudijskiProgrami;
-//	private JMenu mnPlanIProgram;
-//	private JMenuItem mntmPlanIProgram;
+	private JMenuItem mntmZaposleniNaOdjelima;;
+    private JMenu mnPacijenti;
+    private JMenuItem mntmZdravstvenaOsiguranja;
+    private JMenuItem mntmKontaktOsobe;
+    private JMenuItem mntmSviPacijenti;
+    private JMenuItem mntmNezadrzaniPacijenti;
+    private JMenu mnDijagnostika;
+    private JMenuItem mntmLijekovi;
+    private JMenuItem mntmPregledanje;
+    private JMenuItem mntmPrepisivanje;
 //	private JMenu mnIzvestaji;
 //	private JMenuItem mntmProsecneOceneStudenata;
 
@@ -86,7 +91,10 @@ public class GlavniProzor extends JFrame {
 		if (menuBar == null) {
 			menuBar = new JMenuBar();
 			menuBar.add(getMnAplikacija());
-			menuBar.add(getMnSifarnici());
+			menuBar.add(getMnTelefoniOdjela());
+			menuBar.add(getMnOsobljeIOdjeli());
+			menuBar.add(getMnPacijenti());
+			menuBar.add(getMnDijagnostika());
 		}
 		return menuBar;
 	}
@@ -118,59 +126,40 @@ public class GlavniProzor extends JFrame {
 		}
 		return mntmIzlaz;
 	}
-
-	private JMenu getMnSifarnici() {
-		if (mnSifarnici == null) {
-			mnSifarnici = new JMenu("Šifarnici");
-			mnSifarnici.setMnemonic('F');
-			mnSifarnici.add(getMntmLijekovi());
-			mnSifarnici.add(getMntmZdravstvenaOsiguranja());
-			mnSifarnici.add(getMntmKontaktOsobe());
-			mnSifarnici.add(getMntmZaposleni());
-			mnSifarnici.add(getMntmDoktori());
-			mnSifarnici.add(getMntmMedicinskiTehnicari());
-			mnSifarnici.add(getMntmOdjeli());
+	
+	private JMenu getMnTelefoniOdjela() {
+		if (mnTelefoniOdjela == null) {
+			mnTelefoniOdjela = new JMenu("Kontakt telefoni");
+			mnTelefoniOdjela.setMnemonic('T');
+			mnTelefoniOdjela.add(getMntmTelefoniOdjela());
 		}
-		return mnSifarnici;
+		return mnTelefoniOdjela;
 	}
 
-	private JMenuItem getMntmLijekovi() {
-		if (mntmLijekovi == null) {
-			mntmLijekovi = new JMenuItem("Lijekovi");
-			mntmLijekovi.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					new LijekoviFrame(false).setVisible(true);
+	private JMenuItem getMntmTelefoniOdjela() {
+		if (mntmTelefoniOdjela == null) {
+			mntmTelefoniOdjela = new JMenuItem("Kontakt telefoni odjela");
+			mntmTelefoniOdjela.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new TelefoniOdjelaFrame(false).setVisible(true);
 				}
 			});
-			mntmLijekovi.setMnemonic('F');
+			mntmTelefoniOdjela.setMnemonic('T');
 		}
-		return mntmLijekovi;
+		return mntmTelefoniOdjela;
 	}
-	
-	private JMenuItem getMntmZdravstvenaOsiguranja() {
-		if (mntmZdravstvenaOsiguranja == null) {
-			mntmZdravstvenaOsiguranja = new JMenuItem("Zdravstvena osiguranja");
-			mntmZdravstvenaOsiguranja.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					new ZdravstvenaOsiguranjaFrame(false).setVisible(true);
-				}
-			});
-			mntmZdravstvenaOsiguranja.setMnemonic('F');
+
+	private JMenu getMnOsobljeIOdjeli() {
+		if (mnOsobljeIOdjeli == null) {
+			mnOsobljeIOdjeli = new JMenu("Osoblje i odjeli");
+			mnOsobljeIOdjeli.setMnemonic('T');
+			mnOsobljeIOdjeli.add(getMntmZaposleni());
+			mnOsobljeIOdjeli.add(getMntmDoktori());
+			mnOsobljeIOdjeli.add(getMntmMedicinskiTehnicari());
+			mnOsobljeIOdjeli.add(getMntmOdjeli());
+			mnOsobljeIOdjeli.add(getMntmZaposleniNaOdjelima());
 		}
-		return mntmZdravstvenaOsiguranja;
-	}
-	
-	private JMenuItem getMntmKontaktOsobe() {
-		if (mntmKontaktOsobe == null) {
-			mntmKontaktOsobe = new JMenuItem("Kontakt osobe pacijenata");
-			mntmKontaktOsobe.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					new KontaktOsobeFrame(false).setVisible(true);
-				}
-			});
-			mntmKontaktOsobe.setMnemonic('K');
-		}
-		return mntmKontaktOsobe;
+		return mnOsobljeIOdjeli;
 	}
 	
 	private JMenuItem getMntmZaposleni() {
@@ -223,6 +212,119 @@ public class GlavniProzor extends JFrame {
 			mntmOdjeli.setMnemonic('O');
 		}
 		return mntmOdjeli;
+	}
+	
+	private JMenuItem getMntmZaposleniNaOdjelima(){
+		if (mntmZaposleniNaOdjelima == null) {
+			mntmZaposleniNaOdjelima = new JMenuItem("Zaposleni na odjelima");
+			mntmZaposleniNaOdjelima.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new ZaposleniNaOdjelimaFrame().setVisible(true);
+				}
+			});
+			mntmZaposleniNaOdjelima.setMnemonic('Z');
+		}
+		return mntmZaposleniNaOdjelima;
+	}
+	
+	private JMenu getMnPacijenti() {
+		if (mnPacijenti == null) {
+			mnPacijenti = new JMenu("Pacijenti");
+			mnPacijenti.setMnemonic('P');
+			mnPacijenti.add(getMntmZdravstvenaOsiguranja());
+			mnPacijenti.add(getMntmKontaktOsobe());
+			mnPacijenti.add(getSviPacijenti());
+			mnPacijenti.add(getNezadrzaniPacijenti());
+		}
+		return mnPacijenti;
+	}
+	
+	private JMenuItem getMntmZdravstvenaOsiguranja() {
+		if (mntmZdravstvenaOsiguranja == null) {
+			mntmZdravstvenaOsiguranja = new JMenuItem("Zdravstvena osiguranja");
+			mntmZdravstvenaOsiguranja.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new ZdravstvenaOsiguranjaFrame(false).setVisible(true);
+				}
+			});
+			mntmZdravstvenaOsiguranja.setMnemonic('F');
+		}
+		return mntmZdravstvenaOsiguranja;
+	}
+	
+	private JMenuItem getMntmKontaktOsobe() {
+		if (mntmKontaktOsobe == null) {
+			mntmKontaktOsobe = new JMenuItem("Kontakt osobe pacijenata");
+			mntmKontaktOsobe.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new KontaktOsobeFrame(false).setVisible(true);
+				}
+			});
+			mntmKontaktOsobe.setMnemonic('K');
+		}
+		return mntmKontaktOsobe;
+	}
+	
+	private JMenuItem getSviPacijenti() {
+		if (mntmSviPacijenti == null) {
+			mntmSviPacijenti = new JMenuItem("Svi pacijenti");
+			mntmSviPacijenti.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new PacijentiFrame(false).setVisible(true);
+				}
+			});
+			mntmSviPacijenti.setMnemonic('P');
+		}
+		return mntmSviPacijenti;
+	}
+	
+	private JMenuItem getNezadrzaniPacijenti() {
+		if (mntmNezadrzaniPacijenti == null) {
+			mntmNezadrzaniPacijenti = new JMenuItem("Nezadržani pacijenti");
+			mntmNezadrzaniPacijenti.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new PacijentNijeZadrzanFrame(false).setVisible(true);
+				}
+			});
+			mntmNezadrzaniPacijenti.setMnemonic('N');
+		}
+		return mntmNezadrzaniPacijenti;
+	}
+	
+	private JMenu getMnDijagnostika() {
+		if (mnDijagnostika == null) {
+			mnDijagnostika = new JMenu("Dijagnostika");
+			mnDijagnostika.setMnemonic('D');
+			mnDijagnostika.add(getMntmLijekovi());
+			mnDijagnostika.add(getMntmPrepisivanje());
+		}
+		return mnDijagnostika;
+	}
+	
+	private JMenuItem getMntmLijekovi() {
+		if (mntmLijekovi == null) {
+			mntmLijekovi = new JMenuItem("Lijekovi");
+			mntmLijekovi.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new LijekoviFrame(false).setVisible(true);
+				}
+			});
+			mntmLijekovi.setMnemonic('L');
+		}
+		return mntmLijekovi;
+	}
+	
+	private JMenuItem getMntmPrepisivanje() {
+		if (mntmPrepisivanje == null) {
+			mntmPrepisivanje = new JMenuItem("Prepisivanje lijekova");
+			mntmPrepisivanje.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new PrepisivanjeFrame(false).setVisible(true);
+				}
+			});
+			mntmPrepisivanje.setMnemonic('P');
+		}
+		return mntmPrepisivanje;
 	}
 	
 }

@@ -150,7 +150,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 					if (zod.getDialogResult().equalsIgnoreCase("OK")) {
 						osveziTabelu();
 						JOptionPane.showMessageDialog(ovaj,
-								"Novo osiguranje je uspešno dodano!", "Poruka",
+								"Novo osiguranje je uspjeÅ¡no dodano!", "Poruka",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
@@ -170,7 +170,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Osiguranje nije odabrano!", "Greška",
+								"Osiguranje nije odabrano!", "Greï¿½ka",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						ZdravstvenoOsiguranje odabranoOsiguranje = ((ZdravstvenoOsiguranjeTableModel) table
@@ -181,7 +181,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 						if (zod.getDialogResult().equalsIgnoreCase("OK")) {
 							osveziTabelu();
 							JOptionPane.showMessageDialog(ovaj,
-									"Osiguranje je uspešno ažurirano!", "Poruka",
+									"Osiguranje je uspjeÅ¡no aÅ¾urirano!", "Poruka",
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 					}
@@ -202,7 +202,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Osiguranje nije odabrano!", "Greška",
+								"Osiguranje nije odabrano!", "GreÅ¡ka",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						ZdravstvenoOsiguranje odabranoOsiguranje = ((ZdravstvenoOsiguranjeTableModel) table
@@ -211,7 +211,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 						int odabir = JOptionPane
 								.showOptionDialog(
 										ovaj,
-										"Da li ste sigurni da želite obrisati odabrano osiguranje?",
+										"Da li ste sigurni da Å¾elite obrisati odabrano osiguranje?",
 										"Potvrda brisanja",
 										JOptionPane.YES_NO_OPTION,
 										JOptionPane.QUESTION_MESSAGE, null,
@@ -222,15 +222,15 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 									.getDataAccessFactory()
 									.getZdravstvenoOsiguranjeDataAccess()
 									.obrisiZdravstvenoOsiguranje(
-											odabranoOsiguranje.getIdOsiguranja())) {
+											odabranoOsiguranje.getDavalacOsiguranja())) {
 								osveziTabelu();
 								JOptionPane.showMessageDialog(ovaj,
-										"Osiguranje je uspešno obrisano!",
+										"Osiguranje je uspeï¿½no obrisano!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 							} else
 								JOptionPane.showMessageDialog(ovaj,
-										"Osiguranje nije uspešno obrisano!",
+										"Osiguranje nije uspeï¿½no obrisano!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 						}
@@ -252,7 +252,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Osiguranje nije odabrano!", "Greška",
+								"Osiguranje nije odabrano!", "Greï¿½ka",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						odabranoOsiguranje = ((ZdravstvenoOsiguranjeTableModel) table.getModel())
@@ -300,7 +300,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 
 	private JButton getBtnPretraziti() {
 		if (btnPretraziti == null) {
-			btnPretraziti = new JButton("Pretražiti");
+			btnPretraziti = new JButton("Pretraï¿½iti");
 			btnPretraziti.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					if (Utilities.isSearchPatternValid(tfDavalacOsiguranja
@@ -309,7 +309,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 					else
 						JOptionPane.showMessageDialog(ovaj,
 								"Davalac osiguranja nije pravilno popunjen!",
-								"Greška", JOptionPane.ERROR_MESSAGE);
+								"Greï¿½ka", JOptionPane.ERROR_MESSAGE);
 				}
 			});
 			btnPretraziti.setBounds(274, 37, 100, 23);
@@ -347,6 +347,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 			table.setFillsViewportHeight(true);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			table.getColumnModel().getColumn(0).setPreferredWidth(300);
+			table.getColumnModel().getColumn(1).setPreferredWidth(450);
 			table.getColumnModel().getColumn(1).setPreferredWidth(450);
 		}
 		return table;

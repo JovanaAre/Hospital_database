@@ -5,7 +5,6 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class ZdravstvenoOsiguranje {
 	
-	private int idOsiguranja;
 	private String davalacOsiguranja;
 	private String adresa;
 	private String telefon;
@@ -13,22 +12,13 @@ public class ZdravstvenoOsiguranje {
 	public ZdravstvenoOsiguranje() {
 	}
 
-	public ZdravstvenoOsiguranje(int idOsiguranja, String davalacOsiguranja, String adresa, String telefon) {
+	public ZdravstvenoOsiguranje(String davalacOsiguranja, String adresa, String telefon) {
 		super();
-		this.idOsiguranja = idOsiguranja;
 		this.davalacOsiguranja = davalacOsiguranja;
 		this.adresa = adresa;
 		this.telefon = telefon;
 	}
-	
-	public int getIdOsiguranja() {
-		return idOsiguranja;
-	}
-
-	public void setIdOsiguranja(int idOsiguranja) {
-		this.idOsiguranja = idOsiguranja;
-	}
-	
+		
 	public String getDavalacOsiguranja() {
 		return davalacOsiguranja;
 	}
@@ -57,10 +47,11 @@ public class ZdravstvenoOsiguranje {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idOsiguranja;
+		result = prime * result
+				+ ((davalacOsiguranja == null) ? 0 : davalacOsiguranja.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,7 +61,10 @@ public class ZdravstvenoOsiguranje {
 		if (getClass() != obj.getClass())
 			return false;
 		ZdravstvenoOsiguranje other = (ZdravstvenoOsiguranje) obj;
-		if (idOsiguranja != other.idOsiguranja)
+		if (davalacOsiguranja == null) {
+			if (other.davalacOsiguranja != null)
+				return false;
+		} else if (!davalacOsiguranja.equals(other.davalacOsiguranja))
 			return false;
 		return true;
 	}

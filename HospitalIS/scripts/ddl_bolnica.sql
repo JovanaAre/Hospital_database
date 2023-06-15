@@ -298,28 +298,28 @@ select * from radi_na;
 */
 create table telefon_odjela
 (
-  Telefon varchar(20),
   IdOdjela int,
-  primary key (Telefon, IdOdjela),
+  Telefon varchar(20),
+  primary key (IdOdjela, Telefon),
   constraint FK_telefon_odjela_odjel
   foreign key (IdOdjela)
   references odjel (IdOdjela)
 );
 
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 342 505', 10000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 342 563', 10000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 342 517', 11000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 343 343', 12000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 232 440', 13000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 232 442', 13000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 434 280', 14000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 343 368', 15000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 342 405', 16000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 342 413', 16000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 342 547', 17000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 342 249', 18000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 342 473', 19000);
-insert into telefon_odjela (Telefon, IdOdjela) values ('+387 (0) 51 233 859', 11100);
+insert into telefon_odjela (IdOdjela, Telefon) values (10000, '+387 (0) 51 342 505');
+insert into telefon_odjela (IdOdjela, Telefon) values (10000, '+387 (0) 51 342 563');
+insert into telefon_odjela (IdOdjela, Telefon) values (11000, '+387 (0) 51 342 517');
+insert into telefon_odjela (IdOdjela, Telefon) values (12000, '+387 (0) 51 343 343');
+insert into telefon_odjela (IdOdjela, Telefon) values (13000, '+387 (0) 51 232 440');
+insert into telefon_odjela (IdOdjela, Telefon) values (13000, '+387 (0) 51 232 442');
+insert into telefon_odjela (IdOdjela, Telefon) values (14000, '+387 (0) 51 434 280');
+insert into telefon_odjela (IdOdjela, Telefon) values (15000, '+387 (0) 51 343 368');
+insert into telefon_odjela (IdOdjela, Telefon) values (16000, '+387 (0) 51 342 405');
+insert into telefon_odjela (IdOdjela, Telefon) values (16000, '+387 (0) 51 342 413');
+insert into telefon_odjela (IdOdjela, Telefon) values (17000, '+387 (0) 51 342 547');
+insert into telefon_odjela (IdOdjela, Telefon) values (18000, '+387 (0) 51 342 249');
+insert into telefon_odjela (IdOdjela, Telefon) values (19000, '+387 (0) 51 342 473');
+insert into telefon_odjela (IdOdjela, Telefon) values (11100, '+387 (0) 51 233 859');
 select * from telefon_odjela;
 
 /*
@@ -331,21 +331,17 @@ select * from telefon_odjela;
 -- Mapiranje jakog entitetskog tipa ZDRAVSTVENO_OSIGURANJE prema Pravilu 1
 create table zdravstveno_osiguranje
 (
-	IdOsiguranja int,
-    DavalacOsiguranja varchar(50) not null,
+    DavalacOsiguranja varchar(50),
     Adresa varchar(50) not null,
     Telefon varchar(20) not null,
-    primary key (IdOsiguranja)
+    primary key (DavalacOsiguranja)
 );
 
-insert into zdravstveno_osiguranje (IdOsiguranja, DavalacOsiguranja, Adresa, Telefon) values (542319, 'FZO RS','Zdrave Korde 8, Banja Luka', '+387 (0) 51 249 100');
-insert into zdravstveno_osiguranje (IdOsiguranja, DavalacOsiguranja, Adresa, Telefon) values (196452, 'Uniqa osiguranje','Jevrejska 99, Banja Luka', '+387 (0) 51 223 770');
-insert into zdravstveno_osiguranje (IdOsiguranja, DavalacOsiguranja, Adresa, Telefon) values (227304, 'Vienna osiguranje','Pave Radana 12, Banja Luka', '+387 (0) 51 232 360');
-insert into zdravstveno_osiguranje (IdOsiguranja, DavalacOsiguranja, Adresa, Telefon) values (785231, 'FZO RS','Zdrave Korde 8, Banja Luka', '+387 (0) 51 249 100');
-insert into zdravstveno_osiguranje (IdOsiguranja, DavalacOsiguranja, Adresa, Telefon) values (708935, 'Dunav osiguranje','Veselina Masleše 28, Banja Luka', '+387 (0) 80 050 600');
-insert into zdravstveno_osiguranje (IdOsiguranja, DavalacOsiguranja, Adresa, Telefon) values (703248, 'Wiener osiguranje','Kninska 1a, Banja Luka', '+387 (0) 51 931 100');
-insert into zdravstveno_osiguranje (IdOsiguranja, DavalacOsiguranja, Adresa, Telefon) values (214789, 'FZO RS','Zdrave Korde 8, Banja Luka', '+387 (0) 51 249 100');
-insert into zdravstveno_osiguranje (IdOsiguranja, DavalacOsiguranja, Adresa, Telefon) values (633879, 'FZO RS','Zdrave Korde 8, Banja Luka', '+387 (0) 51 249 100');
+insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('FZO RS','Zdrave Korde 8, Banja Luka', '+387 (0) 51 249 100');
+insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('Uniqa osiguranje','Jevrejska 99, Banja Luka', '+387 (0) 51 223 770');
+insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('Vienna osiguranje','Pave Radana 12, Banja Luka', '+387 (0) 51 232 360');
+insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('Dunav osiguranje','Veselina Masleše 28, Banja Luka', '+387 (0) 80 050 600');
+insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('Wiener osiguranje','Kninska 1a, Banja Luka', '+387 (0) 51 931 100');
 select * from zdravstveno_osiguranje;
 /*
   Mapiranje superklase PACIJENT prema Pravilu 3A i mapiranje
@@ -361,27 +357,26 @@ create table pacijent
     Telefon varchar(20),
 	Pol varchar(6) not null,
     KrvnaGrupa varchar(3) not null,
-	IdOsiguranja int,
-	TroskovePlaca char(1) not null,
+	DavalacOsiguranja varchar(50) not null,
     primary key(JMBPacijenta),
 	constraint FK_pacijent_zdravstveno_osiguranje
-    foreign key (IdOsiguranja)
-    references zdravstveno_osiguranje (IdOsiguranja)
+    foreign key (DavalacOsiguranja)
+    references zdravstveno_osiguranje (DavalacOsiguranja)
 );
 
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('1502973101187', 'Danilo', 'Dragić','1973-02-15', 'Ulica 104','+387 (0) 66 321 147', 'muški', 'AB', NULL, 'P');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('1108969107983', 'Milica', 'Momčilović', '1969-08-11', 'Ulica 12','+387 (0) 65 132 450', 'ženski', 'A', 542319, 'O');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('1907971101492', 'Miroslav', 'Stanojević','1971-07-19', 'Ulica 98','+387 (0) 65 917 052', 'muški', '0', 196452, 'O');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('0702998129315', 'Viktorija', 'Radišić', '1998-02-07', 'Ulica 36','+387 (0) 66 215 653', 'ženski', 'B', NULL, 'P');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('1211969134934', 'Dražen', 'Ilić', '1969-11-12', 'Ulica 24','+387 (0) 65 718 524', 'muški', 'A', 227304, 'O');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('1803016112381', 'Luka', 'Jovanović', '2016-03-18', 'Ulica 147', NULL, 'muški', 'B', NULL, 'P');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('2201984108175', 'Ana', 'Živanović', '1984-01-22', 'Ulica 93','+387 (0) 66 630 037', 'ženski', 'B', 633879, 'O');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('2304988101562', 'Marko', 'Polić', '1988-04-23', 'Ulica 27','+387 (0) 66 445 884', 'muški', '0', 785231, 'O');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('2711019139654', 'Anastasija', 'Marinković', '2019-11-27', 'Ulica 38', NULL, 'ženski', 'AB', 708935, 'O');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('1509967103517', 'Nikola', 'Vesić', '1967-09-15', 'Ulica 65','+387 (0) 65 182 326', 'muški', 'B', 703248, 'O');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('2605981101865', 'Momčilo', 'Lekić', '1981-05-26', 'Ulica 41','+387 (0) 65 456 123', 'muški', '0', NULL, 'P');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('1402975106903', 'Dejana', 'Marjanović', '1975-02-14', 'Ulica 2','+387 (0) 66 759 486', 'ženski', '0', 214789, 'O');
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, IdOsiguranja, TroskovePlaca) values ('0111983109487', 'Jovana', 'Rapić', '1983-11-01', 'Ulica 72','+387 (0) 66 153 759', 'ženski', 'AB', NULL, 'P');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1502973101187', 'Danilo', 'Dragić','1973-02-15', 'Ulica 104','+387 (0) 66 321 147', 'muški', 'AB', 'FZO RS');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1108969107983', 'Milica', 'Momčilović', '1969-08-11', 'Ulica 12','+387 (0) 65 132 450', 'ženski', 'A', 'Wiener osiguranje');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1907971101492', 'Miroslav', 'Stanojević','1971-07-19', 'Ulica 98','+387 (0) 65 917 052', 'muški', '0', 'Wiener osiguranje');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('0702998129315', 'Viktorija', 'Radišić', '1998-02-07', 'Ulica 36','+387 (0) 66 215 653', 'ženski', '0','Uniqa osiguranje');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1211969134934', 'Dražen', 'Ilić', '1969-11-12', 'Ulica 24','+387 (0) 65 718 524', 'muški', 'A', 'FZO RS');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1803016112381', 'Luka', 'Jovanović', '2016-03-18', 'Ulica 147', NULL, 'muški', 'B', 'Vienna osiguranje');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('2201984108175', 'Ana', 'Živanović', '1984-01-22', 'Ulica 93','+387 (0) 66 630 037', 'ženski', 'AB', 'Dunav osiguranje');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('2304988101562', 'Marko', 'Polić', '1988-04-23', 'Ulica 27','+387 (0) 66 445 884', 'muški', '0', 'FZO RS');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('2711019139654', 'Anastasija', 'Marinković', '2019-11-27', 'Ulica 38', '+387 (0) 66 520 051', 'ženski', 'AB', 'Uniqa osiguranje');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1509967103517', 'Nikola', 'Vesić', '1967-09-15', 'Ulica 65','+387 (0) 65 182 326', 'muški', 'B', 'FZO RS');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('2605981101865', 'Momčilo', 'Lekić', '1981-05-26', 'Ulica 41','+387 (0) 65 456 123', 'muški', '0', 'Wiener osiguranje');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1402975106903', 'Dejana', 'Marjanović', '1975-02-14', 'Ulica 2','+387 (0) 66 759 486', 'ženski', '0', 'Uniqa osiguranje');
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('0111983109487', 'Jovana', 'Rapić', '1983-11-01', 'Ulica 72','+387 (0) 66 153 759', 'ženski', 'AB', 'FZO RS');
 select * from pacijent;
 
 /* Mapiranje jakog entitetskog tipa SOBA prema Pravilu 1
@@ -391,40 +386,36 @@ create table soba
 (
 	IdSobe int,
     CijenaSobe decimal(6,2) not null,
-    IdOdjela int not null,
-    primary key (IdSobe),
-	constraint FK_soba_odjel
-    foreign key (IdOdjela)
-    references odjel (IdOdjela)
+    primary key (IdSobe)
 );
 
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (10001, 25.00, 10000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (10002, 25.00, 10000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (11001, 30.00, 11000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (11002, 30.00, 11000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (11003, 30.00, 11000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (12001, 25.00, 12000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (12002, 25.00, 12000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (12003, 25.00, 12000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (14001, 30.00, 14000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (14002, 30.00, 14000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (14003, 30.00, 14000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (14004, 30.00, 14000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (14005, 30.00, 14000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (15001, 30.00, 15000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (15002, 30.00, 15000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (15003, 30.00, 15000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (16001, 25.00, 16000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (16002, 25.00, 16000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (16003, 25.00, 16000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (16004, 25.00, 16000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (17001, 25.00, 17000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (17002, 25.00, 17000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (17003, 25.00, 17000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (19001, 30.00, 19000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (19002, 30.00, 19000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (19003, 30.00, 19000);
-insert into soba (IdSobe, CijenaSobe, IdOdjela) values (19004, 30.00, 19000);
+insert into soba (IdSobe, CijenaSobe) values (10001, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (10002, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (11001, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (11002, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (11003, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (12001, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (12002, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (12003, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (14001, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (14002, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (14003, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (14004, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (14005, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (15001, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (15002, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (15003, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (16001, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (16002, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (16003, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (16004, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (17001, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (17002, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (17003, 25.00);
+insert into soba (IdSobe, CijenaSobe) values (19001, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (19002, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (19003, 30.00);
+insert into soba (IdSobe, CijenaSobe) values (19004, 30.00);
 select * from soba;
 
 -- Mapiranje veznog tipa ZADUZEN_ZA (M:M tip veze) prema Pravilu 5
@@ -555,7 +546,7 @@ insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (6, 'A
 insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (7, 'Gliclada', 'Tablete', 15.90); -- snizava secer u krvi, endokrinologija, hiperglikemija ++
 insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (8, 'Apaurin', 'Film tablete', 10.20); -- anksioznost ++
 insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (9, 'Haldol', 'Otopina za injekciju', 10.60); -- shizofrenija ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (10, 'Lexoderm', 'Sprej + krema', 21.50); -- vodene ospice (male boginje) ++
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (10, 'Lexoderm', 'Sprej,krema', 21.50); -- vodene ospice (male boginje) ++
 insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (11, 'Naturoplex', 'Film tablete', 18.90); -- urologija, urinarna infekcija ++
 insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (12, 'Amoksicilin', 'Pastile', 5.20); -- Akutni streptokokni tonzilitis ++
 insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (13, 'Duoclav', 'Film tablete', 11.40); -- bakterijska infekcija zuba ++
@@ -647,30 +638,26 @@ create table dijagnosticki_pregled
 	IdPregleda int,
     NazivPregleda varchar(30) not null,
     CijenaPregleda decimal(6,2) not null,
-    IdOdjela int not null,
-    primary key (IdPregleda),
-	constraint FK_dijagnosticki_pregled_odjel
-    foreign key (IdOdjela)
-    references odjel (IdOdjela)
+    primary key (IdPregleda)
 );
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (10101, 'Spec. pregled endokrinologa', 45.00, 10000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (11101, 'Spec pregled kardiologa', 50.00, 11000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (12201, 'Spec pregled urologa', 45.00, 12000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (13301, 'Spec pregled stomatologa', 45.00, 13000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (14401, 'Spec. pregled psihijatra', 55.00, 14000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (15501, 'Spec. pregled ortopeda', 45.00, 15000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (16601, 'Spec. pregled pedijatra', 40.00, 16000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (17701, 'Spec. pregled onkologa', 50.00, 17000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (19901, 'Spec. pregled infektologa', 50.00, 19000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (13302, 'Dentalni RTG', 30.00, 13000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (14402, 'Psihijatrijska anamneza', 60.00, 14000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (17702, 'Ultrazvuk abdomena', 70.00, 17000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (18801, 'CT glave', 140.00, 18000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (18802, 'RTG pluća', 40.00, 18000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (11102, 'EKG srca', 20.00, 11000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (18803, 'RTG koljena', 35.00, 18000); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (111101, 'Krvna slika', 10.00, 11100); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda, IdOdjela) values (19902, 'COVID-19 test', 10.00, 11100); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (10101, 'Spec. pregled endokrinologa', 45.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (11101, 'Spec pregled kardiologa', 50.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (12201, 'Spec pregled urologa', 45.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (13301, 'Spec pregled stomatologa', 45.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (14401, 'Spec. pregled psihijatra', 55.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (15501, 'Spec. pregled ortopeda', 45.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (16601, 'Spec. pregled pedijatra', 40.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (17701, 'Spec. pregled onkologa', 50.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (19901, 'Spec. pregled infektologa', 50.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (13302, 'Dentalni RTG', 30.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (14402, 'Psihijatrijska anamneza', 60.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (17702, 'Ultrazvuk abdomena', 70.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18801, 'CT glave', 140.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18802, 'RTG pluća', 40.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (11102, 'EKG srca', 20.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18803, 'RTG koljena', 35.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (111101, 'Krvna slika', 10.00); -- ++
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (19902, 'COVID-19 test', 10.00); -- ++
 select * from dijagnosticki_pregled;
 
 -- Mapiranje n-arnog veznog tipa PREGLEDANJE prema Pravilu 8
@@ -752,13 +739,12 @@ set new.Pol = if(substr(new.JMB,10,1) <= '4', 'muški', 'ženski');
 insert into zaposleni (JMB, Ime, Prezime, Email, DatumRodjenja, Adresa, Plata, Telefon) values ('1212970110482', 'Slavko', 'Šarić', 'slavko.saric@gmail.com', '1970-12-12', 'Ulica 304', 2300.00, '+387 (0) 66 851 888');
 select * from zaposleni;
 
-create trigger postavi_pol_i_troskove_placa before insert
+create trigger postavi_pol_pacijent before insert
 on pacijent
 for each row
-set new.Pol = if(substr(new.JMBPacijenta,10,1) <= '4', 'muški', 'ženski'),
-new.TroskovePlaca = if(new.IdOsiguranja, 'O', 'P');
+set new.Pol = if(substr(new.JMBPacijenta,10,1) <= '4', 'muški', 'ženski');
 
-insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, KrvnaGrupa, IdOsiguranja) values ('1608983109107', 'Vera', 'Drašković','1983-08-16', 'Ulica 404','+387 (0) 65 332 257', 'AB', NULL);
+insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, KrvnaGrupa, DavalacOsiguranja) values ('1608983109107', 'Vera', 'Drašković','1983-08-16', 'Ulica 404','+387 (0) 65 332 257', 'AB', 'FZO RS');
 select * from pacijent;
 
  delimiter $$
@@ -802,7 +788,7 @@ select * from kontakt_osoba;
 select * from zaposleni;
 select * from doktor;
 
-drop view odjel_doktor_med_tehnicar;
+drop view if exists odjel_doktor_med_tehnicar;
 create view odjel_doktor_med_tehnicar (IdOdjela, NazivOdjela, Adresa, JMBSO, ImeSO, PrezimeSO, EmailSO, DatumRodjenjaSO, AdresaSO, PlataSO, PolSO, TelefonSO, 
 Specijalizacija, JMBGMS, ImeGMS, PrezimeGMS, EmailGMS, DatumRodjenjaGMS, AdresaGMS, PlataGMS, PolGMS, TelefonGMS, StrucnaSprema) as
 select o.IdOdjela, o.NazivOdjela, o.Adresa, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon, d.Specijalizacija, za.JMB, 
@@ -812,7 +798,91 @@ inner join doktor d on d.JMB=o.JMBSefaOdjela
 inner join zaposleni z on z.JMB=d.JMB
 inner join med_sestra_tehnicar mst on mst.JMB=o.JMBGlavneMedSestreTehnicara
 inner join zaposleni za on za.JMB=mst.JMB
-order by o.IdOdjela desc;
+order by o.IdOdjela asc;
 
 select * from odjel_doktor_med_tehnicar;
 select * from odjel;
+
+-- Ne koristim
+drop view if exists telefoni_odjela;
+create view telefoni_odjela (IdOdjela, NazivOdjela, Adresa, JMBSO, ImeSO, PrezimeSO, EmailSO, DatumRodjenjaSO, AdresaSO, PlataSO, PolSO, TelefonSO, 
+Specijalizacija, JMBGMS, ImeGMS, PrezimeGMS, EmailGMS, DatumRodjenjaGMS, AdresaGMS, PlataGMS, PolGMS, TelefonGMS, StrucnaSprema, Telefon) as
+select o.IdOdjela, o.NazivOdjela, o.Adresa, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon, d.Specijalizacija, za.JMB, 
+za.Ime, za.Prezime, za.Email, za.DatumRodjenja, za.Adresa, za.Plata, za.Pol, za.Telefon, mst.StrucnaSprema, t.Telefon
+from odjel o
+inner join doktor d on d.JMB=o.JMBSefaOdjela
+inner join zaposleni z on z.JMB=d.JMB
+inner join med_sestra_tehnicar mst on mst.JMB=o.JMBGlavneMedSestreTehnicara
+inner join zaposleni za on za.JMB=mst.JMB
+inner join telefon_odjela t on t.IdOdjela=o.IdOdjela
+group by o.IdOdjela
+order by o.IdOdjela asc;
+
+select * from telefoni_odjela;
+
+select * from telefon_odjela;
+
+delimiter $$
+create procedure azuriraj_telefon_odjela(in pIdOdjela int, in pTelefon varchar(20), in ppTelefon varchar(20))
+begin
+    update telefon_odjela
+    set Telefon=pTelefon
+    where IdOdjela=pIdOdjela and Telefon=ppTelefon;
+end$$
+delimiter ;
+
+
+select p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja, 
+zo.Adresa, zo.Telefon
+from pacijent p
+inner join zdravstveno_osiguranje zo on zo.DavalacOsiguranja=p.DavalacOsiguranja
+order by p.Prezime asc;
+
+select p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja, 
+zo.Adresa, zo.Telefon, pnz.DatumDolaska
+from pacijent p
+inner join zdravstveno_osiguranje zo on zo.DavalacOsiguranja=p.DavalacOsiguranja
+inner join pacijent_nije_zadrzan pnz on pnz.JMBPacijenta=p.JMBPacijenta
+order by p.Prezime asc;
+
+ -- drop trigger postavi_datum_dolaska;
+-- create trigger postavi_datum_dolaska before insert
+-- on pacijent_nije_zadrzan
+-- for each row
+-- set new.DatumDolaska = curDate();
+
+-- insert into pacijent_nije_zadrzan (JMBPacijenta) values ('1608983109107');
+select * from pacijent_nije_zadrzan;
+
+select rn.DatumZaposlenja, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon,
+o.IdOdjela, o.NazivOdjela, o.Adresa, za.JMB, za.Ime, za.Prezime, za.Email, za.DatumRodjenja, za.Adresa, za.Plata, 
+za.Pol, za.Telefon, d.Specijalizacija, zap.JMB, zap.Ime, zap.Prezime, zap.Email, zap.DatumRodjenja, zap.Adresa, zap.Plata,
+zap.Pol, zap.Telefon, mst.StrucnaSprema
+from radi_na rn
+inner join zaposleni z on z.JMB=rn.JMB
+inner join odjel o on o.IdOdjela=rn.IdOdjela
+inner join doktor d on d.JMB=o.JMBSefaOdjela
+inner join zaposleni za on za.JMB=d.JMB
+inner join med_sestra_tehnicar mst on mst.JMB=o.JMBGlavneMedSestreTehnicara
+inner join zaposleni zap on zap.JMB=mst.JMB
+where rn.IdOdjela = 16000
+order by z.Prezime asc;
+
+-- DELETE FROM radi_na where DatumZaposlenja='2016-01-13' and JMB='1608983109107' AND IdOdjela=16000;
+select * from radi_na where IdOdjela=16000;
+select * from odjel;
+select * from radi_na;
+
+select pr.DatumPrepisivanja, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon,
+d.Specijalizacija, p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja,
+zo.Adresa, zo.Telefon, l.IdLijeka, l.NazivLijeka, l.TipLijeka, l.CijenaLijeka, pr.KolicinaLijeka
+from prepisivanje pr
+inner join doktor d on d.JMB=pr.JMBDoktora
+inner join zaposleni z on z.JMB=d.JMB
+inner join pacijent p on p.JMBPacijenta=pr.JMBPacijenta
+inner join zdravstveno_osiguranje zo on zo.DavalacOsiguranja=p.DavalacOsiguranja
+inner join lijek l on l.IdLijeka=pr.IdLijeka
+order by pr.DatumPrepisivanja asc;
+
+select * from prepisivanje;
+select * from racun;

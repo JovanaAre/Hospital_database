@@ -28,7 +28,6 @@ public class ZdravstvenoOsiguranjeDialog extends JDialog {
 	private String dialogResult = "Cancel";
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField tfIdOsiguranja;
 	private JTextField tfDavalacOsiguranja;
 	private JTextField tfAdresa;
 	private JTextField tfTelefon;
@@ -49,9 +48,8 @@ public class ZdravstvenoOsiguranjeDialog extends JDialog {
 
 		initialize();
 
-		tfIdOsiguranja.setText(Integer.toString(zdravstvenoOsiguranje.getIdOsiguranja()));
-		tfIdOsiguranja.setEditable(false);
 		tfDavalacOsiguranja.setText(zdravstvenoOsiguranje.getDavalacOsiguranja());
+		tfDavalacOsiguranja.setEditable(false);
 		tfAdresa.setText(zdravstvenoOsiguranje.getAdresa());
 		tfTelefon.setText(zdravstvenoOsiguranje.getTelefon());
 	}
@@ -61,16 +59,8 @@ public class ZdravstvenoOsiguranjeDialog extends JDialog {
 	}
 
 	private boolean proveriValidnostPolja() {
-		if (tfIdOsiguranja.getText().length() == 0) {
-			JOptionPane.showMessageDialog(ovaj,
-					"Identifikator osiguranja nije popunjen!", "Greška",
-					JOptionPane.ERROR_MESSAGE);
-		} else if (!(Utilities.tryParseInt(tfIdOsiguranja.getText()))
-				|| Integer.valueOf(tfIdOsiguranja.getText()) < 1) {
-			JOptionPane.showMessageDialog(ovaj,
-					"Identifikator osiguranja nije pravilno popunjen!", "Greška",
-					JOptionPane.ERROR_MESSAGE);
-		} else if (tfDavalacOsiguranja.getText().length() == 0) {
+		
+		if (tfDavalacOsiguranja.getText().length() == 0) {
 			JOptionPane.showMessageDialog(ovaj,
 					"Davalac osiguranja nije popunjen!", "Greška",
 					JOptionPane.ERROR_MESSAGE);
@@ -105,48 +95,38 @@ public class ZdravstvenoOsiguranjeDialog extends JDialog {
 		this.contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(this.contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		{
-			JLabel lblIdentifikator = new JLabel("Identifikator:");
-			lblIdentifikator.setBounds(10, 11, 327, 14);
-			contentPanel.add(lblIdentifikator);
-		}
-		{
-			this.tfIdOsiguranja = new JTextField();
-			this.tfIdOsiguranja.setColumns(10);
-			this.tfIdOsiguranja.setBounds(10, 25, 327, 20);
-			contentPanel.add(this.tfIdOsiguranja);
-		}
+		
 		{
 			JLabel lblDavalacOsiguranja = new JLabel("Davalac osiguranja:");
-			lblDavalacOsiguranja.setBounds(10, 59, 327, 14);
+			lblDavalacOsiguranja.setBounds(10, 11, 327, 14);
 			contentPanel.add(lblDavalacOsiguranja);
 		}
 		{
 			this.tfDavalacOsiguranja = new JTextField();
 			this.tfDavalacOsiguranja.setColumns(10);
-			this.tfDavalacOsiguranja.setBounds(10, 73, 327, 20);
+			this.tfDavalacOsiguranja.setBounds(10, 25, 327, 20);
 			contentPanel.add(this.tfDavalacOsiguranja);
 		}
 		{
 			JLabel lblAdresa = new JLabel("Adresa:");
-			lblAdresa.setBounds(10, 104, 327, 14);
+			lblAdresa.setBounds(10, 59, 327, 14);
 			contentPanel.add(lblAdresa);
 		}
 		{
 			this.tfAdresa = new JTextField();
 			this.tfAdresa.setColumns(10);
-			this.tfAdresa.setBounds(10, 118, 327, 20);
+			this.tfAdresa.setBounds(10, 73, 327, 20);
 			contentPanel.add(this.tfAdresa);
 		}
 		{
 			JLabel lblTelefon = new JLabel("Telefon:");
-			lblTelefon.setBounds(10, 149, 327, 14);
+			lblTelefon.setBounds(10, 104, 327, 14);
 			contentPanel.add(lblTelefon);
 		}
 		{
 			this.tfTelefon = new JTextField();
 			this.tfTelefon.setColumns(10);
-			this.tfTelefon.setBounds(10, 163, 327, 20);
+			this.tfTelefon.setBounds(10, 118, 327, 20);
 			contentPanel.add(this.tfTelefon);
 		}
 		{
@@ -158,8 +138,7 @@ public class ZdravstvenoOsiguranjeDialog extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (proveriValidnostPolja()) {
-							ZdravstvenoOsiguranje zdravstvenoOsiguranje = new ZdravstvenoOsiguranje(Integer
-									.valueOf(tfIdOsiguranja.getText()),
+							ZdravstvenoOsiguranje zdravstvenoOsiguranje = new ZdravstvenoOsiguranje(
 									tfDavalacOsiguranja.getText(), tfAdresa
 											.getText(), tfTelefon.getText());
 							boolean rezultat;

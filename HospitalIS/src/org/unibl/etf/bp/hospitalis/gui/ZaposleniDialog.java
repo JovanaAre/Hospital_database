@@ -108,7 +108,7 @@ public class ZaposleniDialog extends JDialog{
 					"Greška", JOptionPane.ERROR_MESSAGE);
 		} else if (!(Utilities.isTextValid(tfDatumRodjenja.getText()))) {
 				JOptionPane.showMessageDialog(ovaj,
-					"Datum rodjenja nije pravilno popunjena!", "Greška",
+					"Datum rodjenja nije pravilno popunjen!", "Greška",
 					JOptionPane.ERROR_MESSAGE);
 		 } else if (!(Utilities.isTextValid(tfAdresa.getText()))) {
 				JOptionPane.showMessageDialog(ovaj,
@@ -186,7 +186,7 @@ public class ZaposleniDialog extends JDialog{
 			contentPanel.add(this.tfEmail);
 		}
 		{
-			JLabel lblDatumRodjenja = new JLabel("Datum rodjenja:");
+			JLabel lblDatumRodjenja = new JLabel("Datum rodjenja (format GGGG-MM-DD):");
 			lblDatumRodjenja.setBounds(10, 203, 300, 14);
 			contentPanel.add(lblDatumRodjenja);
 		}

@@ -11,6 +11,11 @@ public abstract class DataAccessFactory {
     public abstract DoktorDataAccess getDoktorDataAccess();
     public abstract MedicinskiTehnicarDataAccess getMedicinskiTehnicarDataAccess();
     public abstract OdjelDataAccess getOdjelDataAccess();
+    public abstract TelefonOdjelaDataAccess getTelefonOdjelaDataAccess();
+    public abstract PacijentDataAccess getPacijentDataAccess();
+    public abstract PacijentNijeZadrzanDataAccess getPacijentNijeZadrzanDataAccess();
+    public abstract ZaposleniNaOdjelimaDataAccess getZaposleniNaOdjelimaDataAccess();
+    public abstract PrepisivanjeDataAccess getPrepisivanjeDataAccess();
 //	public abstract StudijskiProgramDataAccess getStudijskiProgramDataAccess();
 //	public abstract PredmetNaStudijskomProgramuDataAccess getPredmetNaStudijskomProgramuDataAccess();
 //	public abstract IzvestajiDataAccess getIzvestajiDataAccess();

@@ -8,6 +8,11 @@ import org.unibl.etf.bp.hospitalis.data.ZaposleniDataAccess;
 import org.unibl.etf.bp.hospitalis.data.DoktorDataAccess;
 import org.unibl.etf.bp.hospitalis.data.MedicinskiTehnicarDataAccess;
 import org.unibl.etf.bp.hospitalis.data.OdjelDataAccess;
+import org.unibl.etf.bp.hospitalis.data.TelefonOdjelaDataAccess;
+import org.unibl.etf.bp.hospitalis.data.PacijentDataAccess;
+import org.unibl.etf.bp.hospitalis.data.PacijentNijeZadrzanDataAccess;
+import org.unibl.etf.bp.hospitalis.data.ZaposleniNaOdjelimaDataAccess;
+import org.unibl.etf.bp.hospitalis.data.PrepisivanjeDataAccess;
 
 public class MySQLDataAccessFactory extends DataAccessFactory {
 
@@ -44,6 +49,31 @@ public class MySQLDataAccessFactory extends DataAccessFactory {
 	@Override
 	public OdjelDataAccess getOdjelDataAccess() {
 		return new OdjelDataAccessImpl();
+	}
+	
+	@Override
+	public TelefonOdjelaDataAccess getTelefonOdjelaDataAccess() {
+		return new TelefonOdjelaDataAccessImpl();
+	}
+	
+	@Override
+	public PacijentDataAccess getPacijentDataAccess() {
+		return new PacijentDataAccessImpl();
+	}
+	
+	@Override
+	public PacijentNijeZadrzanDataAccess getPacijentNijeZadrzanDataAccess() {
+		return new PacijentNijeZadrzanDataAccessImpl();
+	}
+	
+	@Override
+	public ZaposleniNaOdjelimaDataAccess getZaposleniNaOdjelimaDataAccess() {
+		return new ZaposleniNaOdjelimaDataAccessImpl();
+	}
+	
+	@Override
+	public PrepisivanjeDataAccess getPrepisivanjeDataAccess() {
+		return new PrepisivanjeDataAccessImpl();
 	}
 //
 //	@Override
