@@ -81,6 +81,6 @@ public class KontaktOsoba {
 
 	@Override
 	public String toString() {
-		return jmbKontaktOsobe;
+		return ime + " " + prezime +", " + telefon;
 	}
 }

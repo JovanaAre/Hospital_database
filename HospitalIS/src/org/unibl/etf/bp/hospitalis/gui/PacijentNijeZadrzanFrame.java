@@ -40,7 +40,7 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 	private JPanel panelOpcije;
 	private JPanel panelPretraga;
 	private JButton btnDodati;
-	private JButton btnIzmeniti;
+	// private JButton btnIzmeniti;
 	private JButton btnObrisati;
 	private JButton btnPrihvatiti;
 	// private JLabel lblJmb;
@@ -147,7 +147,7 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 			panelOpcije.setLayout(null);
 			panelOpcije.setPreferredSize(new Dimension(200, 68));
 			panelOpcije.add(getBtnDodati());
-			panelOpcije.add(getBtnIzmeniti());
+			// panelOpcije.add(getBtnIzmeniti());
 			panelOpcije.add(getBtnObrisati());
 			panelOpcije.add(getBtnPrihvatiti());
 		}
@@ -192,7 +192,7 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 		return btnDodati;
 	}
 
-	private JButton getBtnIzmeniti() {
+	/*private JButton getBtnIzmeniti() {
 		if (btnIzmeniti == null) {
 			btnIzmeniti = new JButton("");
 			btnIzmeniti.addActionListener(new ActionListener() {
@@ -222,7 +222,7 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 			btnIzmeniti.setBounds(68, 0, 58, 58);
 		}
 		return btnIzmeniti;
-	}
+	}*/
 
 	private JButton getBtnObrisati() {
 		if (btnObrisati == null) {
@@ -250,7 +250,8 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 							if (Utilities
 									.getDataAccessFactory().getPacijentNijeZadrzanDataAccess()
 									.obrisiNezadrzanogPacijenta(
-											odabraniNezadrzaniPacijent.getPacijent().getJmbPacijenta())) {
+											odabraniNezadrzaniPacijent.getPacijent().getJmbPacijenta(),
+											odabraniNezadrzaniPacijent.getDatumDolaska())) {
 								osveziTabeluZaSve();
 								JOptionPane.showMessageDialog(ovaj,
 										"Nezadržani pacijent je uspješno obrisan!",
@@ -267,8 +268,9 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 			});
 			btnObrisati.setIcon(new ImageIcon(PacijentNijeZadrzanFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Delete_32.png")));
-			btnObrisati.setToolTipText("Obrisati odabranog nezadrzanog pacijenta");
-			btnObrisati.setBounds(136, 0, 58, 58);
+			btnObrisati.setToolTipText("Obrisati odabranog nezadržanog pacijenta");
+			// btnObrisati.setBounds(136, 0, 58, 58);
+			btnObrisati.setBounds(68, 0, 58, 58);
 		}
 		return btnObrisati;
 	}
@@ -300,30 +302,7 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 		}
 		return btnPrihvatiti;
 	}
-/*	private JLabel getLblJmb() {
-		if (lblJmb == null) {
-			lblJmb = new JLabel("JMB doktora:");
-			lblJmb.setBounds(10, 21, 254, 14);
-		}
-		return lblJmb;
-	}
 
-	private JTextField getTfJmb() {
-		if (tfJmb == null) {
-			tfJmb = new JTextField();
-			tfJmb.setText("*");
-			tfJmb.addKeyListener(new KeyAdapter() {
-				@Override
-				public void keyPressed(KeyEvent arg0) {
-					if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
-						btnPretraziti.doClick();
-				}
-			});
-			tfJmb.setBounds(10, 38, 254, 20);
-			tfJmb.setColumns(10);
-		}
-		return tfJmb;
-	}*/
 
 	private JLabel getLblNezadrzaniPacijenti() {
 		if (lblNezadrzaniPacijenti == null) {
@@ -390,8 +369,7 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 			table.getColumnModel().getColumn(0).setPreferredWidth(250);
 			table.getColumnModel().getColumn(1).setPreferredWidth(250);	
 			table.getColumnModel().getColumn(2).setPreferredWidth(250);
-			table.getColumnModel().getColumn(3).setPreferredWidth(250);	
-			// table.getColumnModel().getColumn(4).setPreferredWidth(250);	
+			table.getColumnModel().getColumn(3).setPreferredWidth(250);		
 		}
 		return table;
 	}

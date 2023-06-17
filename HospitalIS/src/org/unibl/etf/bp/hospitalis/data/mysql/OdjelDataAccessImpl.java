@@ -35,7 +35,7 @@ public class OdjelDataAccessImpl implements OdjelDataAccess {
 			+ "inner join zaposleni za on za.JMB=mst.JMB "
 			+ "order by o.IdOdjela asc; ";*/
 	
-	String query = "SELECT * FROM odjel_doktor_med_tehnicar";
+		String query = "SELECT * FROM odjel_doktor_med_tehnicar";
 		
 		try {
 			conn = ConnectionPool.getInstance().checkOut();

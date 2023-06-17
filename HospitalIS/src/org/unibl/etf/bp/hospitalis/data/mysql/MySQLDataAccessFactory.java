@@ -13,6 +13,10 @@ import org.unibl.etf.bp.hospitalis.data.PacijentDataAccess;
 import org.unibl.etf.bp.hospitalis.data.PacijentNijeZadrzanDataAccess;
 import org.unibl.etf.bp.hospitalis.data.ZaposleniNaOdjelimaDataAccess;
 import org.unibl.etf.bp.hospitalis.data.PrepisivanjeDataAccess;
+import org.unibl.etf.bp.hospitalis.data.SobaDataAccess;
+import org.unibl.etf.bp.hospitalis.data.DijagnostickiPregledDataAccess;
+import org.unibl.etf.bp.hospitalis.data.PacijentZadrzanDataAccess;
+import org.unibl.etf.bp.hospitalis.data.PregledanjeDataAccess;
 
 public class MySQLDataAccessFactory extends DataAccessFactory {
 
@@ -75,17 +79,27 @@ public class MySQLDataAccessFactory extends DataAccessFactory {
 	public PrepisivanjeDataAccess getPrepisivanjeDataAccess() {
 		return new PrepisivanjeDataAccessImpl();
 	}
-//
-//	@Override
-//	public StudijskiProgramDataAccess getStudijskiProgramDataAccess() {
-//		return new StudijskiProgramDataAccessImpl();
-//	}
-//
-//	@Override
-//	public PredmetNaStudijskomProgramuDataAccess getPredmetNaStudijskomProgramuDataAccess() {
-//		return new PredmetNaStudijskomProgramuDataAccessImpl();
-//	}
-//
+	
+	@Override
+	public SobaDataAccess getSobaDataAccess() {
+		return new SobaDataAccessImpl();
+	}
+	
+	@Override
+	public DijagnostickiPregledDataAccess getDijagnostickiPregledDataAccess() {
+		return new DijagnostickiPregledDataAccessImpl();
+	}
+	
+	@Override
+	public PacijentZadrzanDataAccess getPacijentZadrzanDataAccess() {
+		return new PacijentZadrzanDataAccessImpl();
+	}
+	
+	@Override
+	public PregledanjeDataAccess getPregledanjeDataAccess() {
+		return new PregledanjeDataAccessImpl();
+	}
+
 //	@Override
 //	public IzvestajiDataAccess getIzvestajiDataAccess() {
 //		return new IzvestajiDataAccessImpl();

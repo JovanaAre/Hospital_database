@@ -384,42 +384,43 @@ select * from pacijent;
 */
 create table soba
 (
-	IdSobe int,
+	BrojSobe int,
     CijenaSobe decimal(6,2) not null,
-    primary key (IdSobe)
+    BrojKreveta int,
+    primary key (BrojSobe)
 );
 
-insert into soba (IdSobe, CijenaSobe) values (10001, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (10002, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (11001, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (11002, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (11003, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (12001, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (12002, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (12003, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (14001, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (14002, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (14003, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (14004, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (14005, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (15001, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (15002, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (15003, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (16001, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (16002, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (16003, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (16004, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (17001, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (17002, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (17003, 25.00);
-insert into soba (IdSobe, CijenaSobe) values (19001, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (19002, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (19003, 30.00);
-insert into soba (IdSobe, CijenaSobe) values (19004, 30.00);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (10001, 25.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (10002, 25.00, 2);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (11001, 30.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (11002, 30.00, 1);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (11003, 30.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (12001, 25.00, 2);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (12002, 25.00, 4);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (12003, 25.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (14001, 30.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (14002, 30.00, 1);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (14003, 30.00, 4);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (14004, 30.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (14005, 30.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (15001, 30.00, 4);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (15002, 30.00, 1);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (15003, 30.00, 4);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (16001, 25.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (16002, 25.00, 2);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (16003, 25.00, 2);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (16004, 25.00, 2);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (17001, 25.00, 3);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (17002, 25.00, 2);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (17003, 25.00, 1);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (19001, 30.00, 2);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (19002, 30.00, 1);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (19003, 30.00, 1);
+insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (19004, 30.00, 2);
 select * from soba;
 
 -- Mapiranje veznog tipa ZADUZEN_ZA (M:M tip veze) prema Pravilu 5
-create table zaduzen_za
+/* create table zaduzen_za
 (
 	JMBMedSestreTehnicara char(13),
     IdSobe int,
@@ -430,7 +431,7 @@ create table zaduzen_za
     constraint FK_zaduzen_za_soba
     foreign key (IdSobe)
     references soba (IdSobe)
-);
+);*/
 
 -- Mapiranje jakog entitetskog tipa KONTAKT_OSOBA prema Pravilu 1
 create table kontakt_osoba
@@ -466,24 +467,44 @@ create table pacijent_zadrzan
 	JMBPacijenta char(13),
     DatumPrijema date not null,
     DatumOtpustanja date,
-    IdSobe int not null,
+    BrojSobe int not null,
     JMBKontaktOsobe char(13) not null,
-    primary key (JMBPacijenta),
+    primary key (JMBPacijenta, DatumPrijema),
 	constraint FK_pacijent_zadrzan_pacijent
     foreign key (JMBPacijenta)
     references pacijent (JMBPacijenta),
 	constraint FK_pacijent_zadrzan_soba
-    foreign key (IdSobe)
-    references soba (IdSobe),
+    foreign key (BrojSobe)
+    references soba (BrojSobe),
 	constraint FK_pacijent_zadrzan_kontakt_osoba
     foreign key (JMBKontaktOsobe)
     references kontakt_osoba (JMBKontaktOsobe)
 );
+drop trigger if exists azuriraj_broj_kreveta;
+delimiter $$
+create trigger azuriraj_broj_kreveta after insert on pacijent_zadrzan
+for each row
+begin
+    declare vBrojKreveta int;
+	select BrojKreveta into vBrojKreveta
+    from pacijent_zadrzan pz
+    inner join soba s on s.BrojSobe=pz.BrojSobe
+    where JMBPacijenta=new.JMBPacijenta
+    limit 1;
+    
+    if vBrojKreveta>=1 then
+		set vBrojKreveta = vBrojKreveta-1;
+	else
+		set vBrojKreveta = 0;
+	end if;
+	update soba set BrojKreveta = vBrojKreveta where BrojSobe=new.BrojSobe;	
+end$$
+delimiter ;
 
-insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, IdSobe, JMBKontaktOsobe) values ('1502973101187', '2022-10-15', NULL, 17002, '0103972106154'); -- infekcija pluca ++ 
-insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, IdSobe, JMBKontaktOsobe) values ('1108969107983', '2020-08-31', NULL, 19001, '2112989103189'); -- covid-19 infekcija ++
-insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, IdSobe, JMBKontaktOsobe) values ('1907971101492','2023-02-17', NULL, 14003, '1405996101735'); -- shizofrenija ++
-insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, IdSobe, JMBKontaktOsobe) values ('0702998129315','2022-05-24', NULL, 19003, '0406972109892'); -- malign obolj ++
+insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, BrojSobe, JMBKontaktOsobe) values ('1502973101187', '2022-10-15', NULL, 17002, '0103972106154'); -- infekcija pluca ++ 
+insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, BrojSobe, JMBKontaktOsobe) values ('1108969107983', '2020-08-31', NULL, 19001, '2112989103189'); -- covid-19 infekcija ++
+insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, BrojSobe, JMBKontaktOsobe) values ('1907971101492','2023-02-17', NULL, 14003, '1405996101735'); -- shizofrenija ++
+insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, BrojSobe, JMBKontaktOsobe) values ('0702998129315','2022-05-24', NULL, 19003, '0406972109892'); -- malign obolj ++
 select * from pacijent_zadrzan;
 
 /* Mapiranje potklase PACIJENT_NIJE_ZADRZAN (cija je superklasa PACIJENT)
@@ -492,8 +513,8 @@ select * from pacijent_zadrzan;
 create table pacijent_nije_zadrzan
 (
 	JMBPacijenta char(13),
-    DatumDolaska date not null,
-    primary key (JMBPacijenta),
+    DatumDolaska date,
+    primary key (JMBPacijenta, DatumDolaska),
 	constraint FK_pacijent_nije_zadrzan_pacijent
     foreign key (JMBPacijenta)
     references pacijent (JMBPacijenta)
@@ -748,7 +769,7 @@ insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon
 select * from pacijent;
 
  delimiter $$
- create trigger dodaj_sobu_na_racun after update
+ create trigger dodaj_sobu_na_racun after update 
  on pacijent_zadrzan
  for each row
  begin
@@ -761,9 +782,9 @@ select * from pacijent;
   
   select s.CijenaSobe into vCijenaSobe
   from soba s 
-  inner join pacijent_zadrzan pz on pz.IdSobe=s.IdSobe where s.IdSobe=new.IdSobe limit 1;
+  inner join pacijent_zadrzan pz on pz.BrojSobe=s.BrojSobe where s.BrojSobe=new.BrojSobe limit 1;
   
-  set vCijenaSobeUkupno = datediff(new.DatumOtpustanja,new.DatumPrijema) * vCijenaSobe;
+  set vCijenaSobeUkupno = datediff(new.DatumOtpustanja, new.DatumPrijema) * vCijenaSobe;
   
   if vDatumPostoji then
     update racun
@@ -886,3 +907,42 @@ order by pr.DatumPrepisivanja asc;
 
 select * from prepisivanje;
 select * from racun;
+select * from soba;
+select * from dijagnosticki_pregled;
+
+drop view if exists zadrzani_pacijenti;
+create view zadrzani_pacijenti (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranjaZO, 
+AdresaZO, TelefonZO, DatumPrijema, DatumOtpustanja, BrojSobe, CijenaSobe, BrojKreveta,
+JMBKontaktOsobe, ImeKO, PrezimeKO, TelefonKO) as
+select p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja, 
+zo.Adresa, zo.Telefon, pz.DatumPrijema, pz.DatumOtpustanja, s.BrojSobe, s.CijenaSobe, s.BrojKreveta,
+ko.JMBKontaktOsobe, ko.Ime, ko.Prezime, ko.Telefon
+from pacijent p
+inner join zdravstveno_osiguranje zo on zo.DavalacOsiguranja=p.DavalacOsiguranja
+inner join pacijent_zadrzan pz on pz.JMBPacijenta=p.JMBPacijenta
+inner join soba s on s.BrojSobe=pz.BrojSobe
+inner join kontakt_osoba ko on ko.JMBKontaktOsobe=pz.JMBKontaktOsobe
+order by p.Prezime asc;
+
+select * from pacijent_zadrzan;
+select * from racun;
+select * from soba;
+
+create trigger postavi_podrazumijevani_datum_otpustanja before insert
+on pacijent_zadrzan
+for each row
+set new.DatumOtpustanja = '1000-01-01';
+select * from pacijent_nije_zadrzan;
+
+select pr.DatumPregleda, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon,
+d.Specijalizacija, p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja,
+zo.Adresa, zo.Telefon, preg.IdPregleda, preg.NazivPregleda, preg.CijenaPregleda, pr.Dijagnoza, pr.Misljenje
+from pregledanje pr
+inner join doktor d on d.JMB=pr.JMBDoktora
+inner join zaposleni z on z.JMB=d.JMB
+inner join pacijent p on p.JMBPacijenta=pr.JMBPacijenta
+inner join zdravstveno_osiguranje zo on zo.DavalacOsiguranja=p.DavalacOsiguranja
+inner join dijagnosticki_pregled preg on preg.IdPregleda=pr.IdPregleda
+order by pr.DatumPregleda asc;
+
+select * from pregledanje;

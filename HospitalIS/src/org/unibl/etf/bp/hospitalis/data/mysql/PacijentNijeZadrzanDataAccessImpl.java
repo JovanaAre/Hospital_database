@@ -69,7 +69,6 @@ public class PacijentNijeZadrzanDataAccessImpl implements PacijentNijeZadrzanDat
 			ps = conn.prepareStatement(query);
 			ps.setString(1, jmbPacijenta);
 			rs = ps.executeQuery();
-			//System.out.println(jmbZaposlenog);
 
 			while (rs.next())
 				retVal.add(new PacijentNijeZadrzan(new Pacijent(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getString(6),
@@ -109,7 +108,7 @@ public class PacijentNijeZadrzanDataAccessImpl implements PacijentNijeZadrzanDat
 		return retVal;
 	}
 	
-	@Override
+	/*@Override
 	public boolean azurirajNezadrzanogPacijenta(PacijentNijeZadrzan pacijentNijeZadrzan){
 		boolean retVal = false;
 		Connection conn = null;
@@ -133,20 +132,21 @@ public class PacijentNijeZadrzanDataAccessImpl implements PacijentNijeZadrzanDat
 			MySQLUtilities.getInstance().close(ps);
 		}
 		return retVal;
-	}
+	}*/
 	
 	@Override
-	public boolean obrisiNezadrzanogPacijenta(String jmbPacijenta){
+	public boolean obrisiNezadrzanogPacijenta(String jmbPacijenta, Date datumDolaska){
 		boolean retVal = false;
 		Connection conn = null;
 		PreparedStatement ps = null;
 
 		String query = "DELETE FROM pacijent_nije_zadrzan "
-				+ "WHERE JMBPacijenta=? ";
+				+ "WHERE JMBPacijenta=? and datumDolaska=? ";
 		try {
 			conn = ConnectionPool.getInstance().checkOut();
 			ps = conn.prepareStatement(query);
 			ps.setString(1, jmbPacijenta);
+			ps.setDate(2, datumDolaska);
 
 			retVal = ps.executeUpdate() == 1;
 		} catch (SQLException e) {

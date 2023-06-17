@@ -63,9 +63,13 @@ public class PacijentNijeZadrzan implements Serializable {
 				return false;
 		} else if (!pacijent.equals(other.pacijent))
 			return false;
+		if (datumDolaska == null) {
+			if (other.datumDolaska != null)
+				return false;
+		} else if (!datumDolaska.equals(other.datumDolaska))
+			return false;
 		return true;
 	}
-
 
 	@Override
 	public String toString() {

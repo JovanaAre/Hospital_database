@@ -256,7 +256,7 @@ public class PrepisivanjeFrame extends JFrame{
 			});
 			btnObrisati.setIcon(new ImageIcon(PrepisivanjeFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Delete_32.png")));
-			btnObrisati.setToolTipText("Obrisati odabrani odjel");
+			btnObrisati.setToolTipText("Obrisati odabrano prepisivanje");
 			btnObrisati.setBounds(136, 0, 58, 58);
 		}
 		return btnObrisati;
@@ -390,6 +390,7 @@ public class PrepisivanjeFrame extends JFrame{
 			table.getColumnModel().getColumn(3).setPreferredWidth(150);	
 			table.getColumnModel().getColumn(4).setPreferredWidth(150);
 			table.getColumnModel().getColumn(5).setPreferredWidth(150);
+			table.getColumnModel().getColumn(6).setPreferredWidth(150);
 		}
 		return table;
 	}

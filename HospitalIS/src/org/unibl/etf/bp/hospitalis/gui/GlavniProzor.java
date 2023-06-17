@@ -45,10 +45,14 @@ public class GlavniProzor extends JFrame {
     private JMenuItem mntmKontaktOsobe;
     private JMenuItem mntmSviPacijenti;
     private JMenuItem mntmNezadrzaniPacijenti;
+    private JMenuItem mntmZadrzaniPacijenti;
+    private JMenu mnSobe;
+    private JMenuItem mntmSobe;
     private JMenu mnDijagnostika;
     private JMenuItem mntmLijekovi;
-    private JMenuItem mntmPregledanje;
+    private JMenuItem mntmDijagnostickiPregledi;
     private JMenuItem mntmPrepisivanje;
+    private JMenuItem mntmPregledanje;
 //	private JMenu mnIzvestaji;
 //	private JMenuItem mntmProsecneOceneStudenata;
 
@@ -94,6 +98,7 @@ public class GlavniProzor extends JFrame {
 			menuBar.add(getMnTelefoniOdjela());
 			menuBar.add(getMnOsobljeIOdjeli());
 			menuBar.add(getMnPacijenti());
+			menuBar.add(getMnSobe());
 			menuBar.add(getMnDijagnostika());
 		}
 		return menuBar;
@@ -235,6 +240,7 @@ public class GlavniProzor extends JFrame {
 			mnPacijenti.add(getMntmKontaktOsobe());
 			mnPacijenti.add(getSviPacijenti());
 			mnPacijenti.add(getNezadrzaniPacijenti());
+			mnPacijenti.add(getZadrzaniPacijenti());
 		}
 		return mnPacijenti;
 	}
@@ -291,12 +297,49 @@ public class GlavniProzor extends JFrame {
 		return mntmNezadrzaniPacijenti;
 	}
 	
+	private JMenuItem getZadrzaniPacijenti() {
+		if (mntmZadrzaniPacijenti == null) {
+			mntmZadrzaniPacijenti = new JMenuItem("Zadržani pacijenti");
+			mntmZadrzaniPacijenti.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new PacijentZadrzanFrame(false).setVisible(true);
+				}
+			});
+			mntmZadrzaniPacijenti.setMnemonic('Z');
+		}
+		return mntmZadrzaniPacijenti;
+	}
+	
+	private JMenu getMnSobe() {
+		if (mnSobe == null) {
+			mnSobe = new JMenu("Sobe");
+			mnSobe.setMnemonic('S');
+			mnSobe.add(getMntmSobe());
+		}
+		return mnSobe;
+	}
+	
+	private JMenuItem getMntmSobe() {
+		if (mntmSobe == null) {
+			mntmSobe = new JMenuItem("Sobe");
+			mntmSobe.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new SobeFrame(false).setVisible(true);
+				}
+			});
+			mntmSobe.setMnemonic('S');
+		}
+		return mntmSobe;
+	}
+	
 	private JMenu getMnDijagnostika() {
 		if (mnDijagnostika == null) {
 			mnDijagnostika = new JMenu("Dijagnostika");
 			mnDijagnostika.setMnemonic('D');
 			mnDijagnostika.add(getMntmLijekovi());
+			mnDijagnostika.add(getMntmDijagnostickiPregledi());
 			mnDijagnostika.add(getMntmPrepisivanje());
+			mnDijagnostika.add(getMntmPregledanje());
 		}
 		return mnDijagnostika;
 	}
@@ -314,6 +357,19 @@ public class GlavniProzor extends JFrame {
 		return mntmLijekovi;
 	}
 	
+	private JMenuItem getMntmDijagnostickiPregledi() {
+		if (mntmDijagnostickiPregledi == null) {
+			mntmDijagnostickiPregledi = new JMenuItem("Dijagnostički pregledi");
+			mntmDijagnostickiPregledi.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new DijagnostickiPreglediFrame(false).setVisible(true);
+				}
+			});
+			mntmDijagnostickiPregledi.setMnemonic('D');
+		}
+		return mntmDijagnostickiPregledi;
+	}
+	
 	private JMenuItem getMntmPrepisivanje() {
 		if (mntmPrepisivanje == null) {
 			mntmPrepisivanje = new JMenuItem("Prepisivanje lijekova");
@@ -325,6 +381,19 @@ public class GlavniProzor extends JFrame {
 			mntmPrepisivanje.setMnemonic('P');
 		}
 		return mntmPrepisivanje;
+	}
+	
+	private JMenuItem getMntmPregledanje() {
+		if (mntmPregledanje == null) {
+			mntmPregledanje = new JMenuItem("Pregledanja pacijenata");
+			mntmPregledanje.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new PregledanjeFrame(false).setVisible(true);
+				}
+			});
+			mntmPregledanje.setMnemonic('P');
+		}
+		return mntmPregledanje;
 	}
 	
 }

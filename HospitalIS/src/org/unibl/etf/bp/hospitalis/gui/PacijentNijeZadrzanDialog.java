@@ -59,6 +59,7 @@ public class PacijentNijeZadrzanDialog extends JDialog{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = sdf.format(utilDate);
 		tfDatumDolaska.setText(dateString);
+		tfDatumDolaska.setEditable(false);
 	}
 
 	public String getDialogResult() {
@@ -130,7 +131,7 @@ public class PacijentNijeZadrzanDialog extends JDialog{
 							PacijentNijeZadrzan nezadrzaniPacijent = new PacijentNijeZadrzan(									 
 									 (Pacijent) cbPacijenti.getSelectedItem(), sqlDate);
 							boolean rezultat;
-							if (izmena) {
+							/*if (izmena) {
 								rezultat = Utilities.getDataAccessFactory()
 										.getPacijentNijeZadrzanDataAccess().azurirajNezadrzanogPacijenta(nezadrzaniPacijent);
 								if (!rezultat)
@@ -138,7 +139,7 @@ public class PacijentNijeZadrzanDialog extends JDialog{
 											"Nezadržani pacijent uspješno ažuriran!",
 											"Poruka",
 											JOptionPane.INFORMATION_MESSAGE);
-							} else {
+							} else {*/
 								rezultat = Utilities.getDataAccessFactory()
 										.getPacijentNijeZadrzanDataAccess().dodajNezadrzanogPacijenta(nezadrzaniPacijent);
 								if (!rezultat)
@@ -146,7 +147,7 @@ public class PacijentNijeZadrzanDialog extends JDialog{
 											"Nezadržani pacijent nije uspješno dodan!",
 											"Poruka",
 											JOptionPane.INFORMATION_MESSAGE);
-							}
+							// }
 							if (rezultat) {
 								dialogResult = e.getActionCommand();
 								ovaj.getToolkit()

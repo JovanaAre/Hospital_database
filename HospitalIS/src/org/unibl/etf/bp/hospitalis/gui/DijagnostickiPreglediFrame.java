@@ -12,7 +12,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
 
-import org.unibl.etf.bp.hospitalis.entity.Lijek;
+import org.unibl.etf.bp.hospitalis.entity.DijagnostickiPregled;
 import org.unibl.etf.bp.hospitalis.util.Utilities;
 
 import javax.swing.JButton;
@@ -29,12 +29,12 @@ import java.awt.event.WindowEvent;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class LijekoviFrame extends JFrame {
+public class DijagnostickiPreglediFrame extends JFrame {
 	
-	private LijekoviFrame ovaj;
-	private List<Lijek> lijekovi;
+	private DijagnostickiPreglediFrame ovaj;
+	private List<DijagnostickiPregled> dijagnostickiPregledi;
 
-	private Lijek odabraniLijek;
+	private DijagnostickiPregled odabraniDijagnostickiPregled;
 
 	private JPanel contentPane;
 	private JPanel panel;
@@ -45,8 +45,8 @@ public class LijekoviFrame extends JFrame {
 	private JButton btnIzmeniti;
 	private JButton btnObrisati;
 	private JButton btnPrihvatiti;
-	private JLabel lblNazivLijeka;
-	private JTextField tfNazivLijeka;
+	private JLabel lblNazivPregleda;
+	private JTextField tfNazivPregleda;
 	private JButton btnPretraziti;
 	private JButton btnPrikazatiSve;
 	private JScrollPane scrollPane;
@@ -55,34 +55,34 @@ public class LijekoviFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LijekoviFrame(boolean odabirLijeka) {
+	public DijagnostickiPreglediFrame(boolean odabirDijagnostickogPregleda) {
 		ovaj = this;
-		lijekovi = Utilities.getDataAccessFactory().getLijekDataAccess()
-				.lijekovi("*");
+		dijagnostickiPregledi = Utilities.getDataAccessFactory().getDijagnostickiPregledDataAccess()
+				.dijagnostickiPregledi("*");
 
 		initialize();
 
-		if (!odabirLijeka)
+		if (!odabirDijagnostickogPregleda)
 			btnPrihvatiti.setVisible(false);
 	}
 
-	public Lijek getOdabraniLijek() {
-		return odabraniLijek;
+	public DijagnostickiPregled getOdabraniDijagnostickiPregled() {
+		return odabraniDijagnostickiPregled;
 	}
 
 	private void osveziTabelu() {
-		if (Utilities.isSearchPatternValid(tfNazivLijeka.getText())) {
-			lijekovi = Utilities.getDataAccessFactory().getLijekDataAccess()
-					.lijekovi(tfNazivLijeka.getText());
+		if (Utilities.isSearchPatternValid(tfNazivPregleda.getText())) {
+			dijagnostickiPregledi = Utilities.getDataAccessFactory().getDijagnostickiPregledDataAccess()
+					.dijagnostickiPregledi(tfNazivPregleda.getText());
 
-			LijekTableModel ftm = (LijekTableModel) table.getModel();
-			ftm.setPodaci(lijekovi);
+			DijagnostickiPregledTableModel ftm = (DijagnostickiPregledTableModel) table.getModel();
+			ftm.setPodaci(dijagnostickiPregledi);
 			ftm.fireTableDataChanged();
 		}
 	}
 
 	private void initialize() {
-		setTitle("Lijekovi");
+		setTitle("Dijagnostički pregledi");
 		setBounds(100, 100, 815, 420);
 		setLocationRelativeTo(null);
 		this.contentPane = new JPanel();
@@ -132,8 +132,8 @@ public class LijekoviFrame extends JFrame {
 					TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			panelPretraga.setLayout(null);
 			panelPretraga.setPreferredSize(new Dimension(200, 70));
-			panelPretraga.add(getLblNazivLijeka());
-			panelPretraga.add(getTfNazivLijeka());
+			panelPretraga.add(getLblNazivPregleda());
+			panelPretraga.add(getTfNazivPregleda());
 			panelPretraga.add(getBtnPretraziti());
 			panelPretraga.add(getBtnPrikazatiSve());
 		}
@@ -145,19 +145,19 @@ public class LijekoviFrame extends JFrame {
 			btnDodati = new JButton("");
 			btnDodati.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					LijekDialog ld = new LijekDialog();
-					ld.setVisible(true);
-					if (ld.getDialogResult().equalsIgnoreCase("OK")) {
+					DijagnostickiPregledDialog dpd = new DijagnostickiPregledDialog();
+					dpd.setVisible(true);
+					if (dpd.getDialogResult().equalsIgnoreCase("OK")) {
 						osveziTabelu();
 						JOptionPane.showMessageDialog(ovaj,
-								"Novi lijek je uspješno dodan!", "Poruka",
+								"Novi pregled je uspješno dodan!", "Poruka",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			});
-			btnDodati.setIcon(new ImageIcon(LijekoviFrame.class
+			btnDodati.setIcon(new ImageIcon(DijagnostickiPreglediFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Add_32.png")));
-			btnDodati.setToolTipText("Dodati novi lijek");
+			btnDodati.setToolTipText("Dodati novi pregled");
 			btnDodati.setBounds(0, 0, 58, 58);
 		}
 		return btnDodati;
@@ -170,26 +170,26 @@ public class LijekoviFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Lijek nije odabran!", "Greška",
+								"Pregled nije odabran!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
-						Lijek odabraniLijek = ((LijekTableModel) table
-								.getModel()).getLijekAtRow(table
+						DijagnostickiPregled odabraniDijagnostickiPregled = ((DijagnostickiPregledTableModel) table
+								.getModel()).getDijagnostickiPregledAtRow(table
 								.getSelectedRow());
-						LijekDialog ld = new LijekDialog(odabraniLijek);
-						ld.setVisible(true);
-						if (ld.getDialogResult().equalsIgnoreCase("OK")) {
+						DijagnostickiPregledDialog dpd = new DijagnostickiPregledDialog(odabraniDijagnostickiPregled);
+						dpd.setVisible(true);
+						if (dpd.getDialogResult().equalsIgnoreCase("OK")) {
 							osveziTabelu();
 							JOptionPane.showMessageDialog(ovaj,
-									"Lijek je uspješno ažuriran!", "Poruka",
+									"Pregled je uspješno ažuriran!", "Poruka",
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 					}
 				}
 			});
-			btnIzmeniti.setIcon(new ImageIcon(LijekoviFrame.class
+			btnIzmeniti.setIcon(new ImageIcon(DijagnostickiPreglediFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Edit_32.png")));
-			btnIzmeniti.setToolTipText("Izmeniti odabrani lijek");
+			btnIzmeniti.setToolTipText("Izmeniti odabrani pregled");
 			btnIzmeniti.setBounds(68, 0, 58, 58);
 		}
 		return btnIzmeniti;
@@ -202,16 +202,16 @@ public class LijekoviFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Lijek nije odabran!", "Greška",
+								"Pregled nije odabran!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
-						Lijek odabraniLijek = ((LijekTableModel) table
-								.getModel()).getLijekAtRow(table
+						DijagnostickiPregled odabraniDijagnostickiPregled = ((DijagnostickiPregledTableModel) table
+								.getModel()).getDijagnostickiPregledAtRow(table
 								.getSelectedRow());
 						int odabir = JOptionPane
 								.showOptionDialog(
 										ovaj,
-										"Da li ste sigurni da želite obrisati odabrani lijek?",
+										"Da li ste sigurni da želite obrisati odabrani pregled?",
 										"Potvrda brisanja",
 										JOptionPane.YES_NO_OPTION,
 										JOptionPane.QUESTION_MESSAGE, null,
@@ -220,26 +220,26 @@ public class LijekoviFrame extends JFrame {
 						if (odabir == JOptionPane.YES_OPTION) {
 							if (Utilities
 									.getDataAccessFactory()
-									.getLijekDataAccess()
-									.obrisiLijek(
-											odabraniLijek.getIdLijeka())) {
-								osveziTabelu();
+									.getDijagnostickiPregledDataAccess()
+									.obrisiDijagnostickiPregled(
+											odabraniDijagnostickiPregled.getIdPregleda())) {
+										osveziTabelu();
 								JOptionPane.showMessageDialog(ovaj,
-										"Lijek je uspješno obrisan!",
+										"Pregled je uspješno obrisan!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 							} else
 								JOptionPane.showMessageDialog(ovaj,
-										"Lijek nije uspješno obrisan!",
+										"Pregled nije uspješno obrisan!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 						}
 					}
 				}
 			});
-			btnObrisati.setIcon(new ImageIcon(LijekoviFrame.class
+			btnObrisati.setIcon(new ImageIcon(DijagnostickiPreglediFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Delete_32.png")));
-			btnObrisati.setToolTipText("Obrisati odabrani lijek");
+			btnObrisati.setToolTipText("Obrisati odabrani pregled");
 			btnObrisati.setBounds(136, 0, 58, 58);
 		}
 		return btnObrisati;
@@ -252,11 +252,11 @@ public class LijekoviFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Lijek nije odabran!", "Greška",
+								"Pregled nije odabran!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
-						odabraniLijek = ((LijekTableModel) table.getModel())
-								.getLijekAtRow(table.getSelectedRow());
+						odabraniDijagnostickiPregled = ((DijagnostickiPregledTableModel) table.getModel())
+								.getDijagnostickiPregledAtRow(table.getSelectedRow());
 						ovaj.getToolkit()
 								.getSystemEventQueue()
 								.postEvent(
@@ -265,37 +265,37 @@ public class LijekoviFrame extends JFrame {
 					}
 				}
 			});
-			btnPrihvatiti.setIcon(new ImageIcon(LijekoviFrame.class
+			btnPrihvatiti.setIcon(new ImageIcon(DijagnostickiPreglediFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Check_32.png")));
-			btnPrihvatiti.setToolTipText("Prihvatiti odabrani lijek");
+			btnPrihvatiti.setToolTipText("Prihvatiti odabrani pregled");
 			btnPrihvatiti.setBounds(204, 0, 58, 58);
 		}
 		return btnPrihvatiti;
 	}
 
-	private JLabel getLblNazivLijeka() {
-		if (lblNazivLijeka == null) {
-			lblNazivLijeka = new JLabel("Naziv lijeka:");
-			lblNazivLijeka.setBounds(10, 21, 254, 14);
+	private JLabel getLblNazivPregleda() {
+		if (lblNazivPregleda == null) {
+			lblNazivPregleda = new JLabel("Naziv pregleda:");
+			lblNazivPregleda.setBounds(10, 21, 254, 14);
 		}
-		return lblNazivLijeka;
+		return lblNazivPregleda;
 	}
 
-	private JTextField getTfNazivLijeka() {
-		if (tfNazivLijeka == null) {
-			tfNazivLijeka = new JTextField();
-			tfNazivLijeka.setText("*");
-			tfNazivLijeka.addKeyListener(new KeyAdapter() {
+	private JTextField getTfNazivPregleda() {
+		if (tfNazivPregleda == null) {
+			tfNazivPregleda = new JTextField();
+			tfNazivPregleda.setText("*");
+			tfNazivPregleda.addKeyListener(new KeyAdapter() {
 				@Override
 				public void keyPressed(KeyEvent arg0) {
 					if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
 						btnPretraziti.doClick();
 				}
 			});
-			tfNazivLijeka.setBounds(10, 38, 254, 20);
-			tfNazivLijeka.setColumns(10);
+			tfNazivPregleda.setBounds(10, 38, 254, 20);
+			tfNazivPregleda.setColumns(10);
 		}
-		return tfNazivLijeka;
+		return tfNazivPregleda;
 	}
 
 	private JButton getBtnPretraziti() {
@@ -303,12 +303,12 @@ public class LijekoviFrame extends JFrame {
 			btnPretraziti = new JButton("Pretražiti");
 			btnPretraziti.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					if (Utilities.isSearchPatternValid(tfNazivLijeka
+					if (Utilities.isSearchPatternValid(tfNazivPregleda
 							.getText()))
 						osveziTabelu();
 					else
 						JOptionPane.showMessageDialog(ovaj,
-								"Naziv lijeka nije pravilno popunjen!",
+								"Naziv pregleda nije pravilno popunjen!",
 								"Greška", JOptionPane.ERROR_MESSAGE);
 				}
 			});
@@ -322,7 +322,7 @@ public class LijekoviFrame extends JFrame {
 			btnPrikazatiSve = new JButton("Prikazati sve");
 			btnPrikazatiSve.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					tfNazivLijeka.setText("*");
+					tfNazivPregleda.setText("*");
 					osveziTabelu();
 				}
 			});
@@ -343,15 +343,13 @@ public class LijekoviFrame extends JFrame {
 
 	private JTable getTable() {
 		if (table == null) {
-			table = new JTable(new LijekTableModel(lijekovi));
+			table = new JTable(new DijagnostickiPregledTableModel(dijagnostickiPregledi));
 			table.setFillsViewportHeight(true);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			table.getColumnModel().getColumn(0).setPreferredWidth(100);
 			table.getColumnModel().getColumn(1).setPreferredWidth(100);
 			table.getColumnModel().getColumn(0).setPreferredWidth(100);
-			table.getColumnModel().getColumn(1).setPreferredWidth(100);
 		}
 		return table;
-	}
-	
+	}	
 }

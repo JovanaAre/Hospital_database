@@ -16,8 +16,10 @@ public abstract class DataAccessFactory {
     public abstract PacijentNijeZadrzanDataAccess getPacijentNijeZadrzanDataAccess();
     public abstract ZaposleniNaOdjelimaDataAccess getZaposleniNaOdjelimaDataAccess();
     public abstract PrepisivanjeDataAccess getPrepisivanjeDataAccess();
-//	public abstract StudijskiProgramDataAccess getStudijskiProgramDataAccess();
-//	public abstract PredmetNaStudijskomProgramuDataAccess getPredmetNaStudijskomProgramuDataAccess();
+    public abstract SobaDataAccess getSobaDataAccess();
+    public abstract DijagnostickiPregledDataAccess getDijagnostickiPregledDataAccess();
+    public abstract PacijentZadrzanDataAccess getPacijentZadrzanDataAccess();
+    public abstract PregledanjeDataAccess getPregledanjeDataAccess();
 //	public abstract IzvestajiDataAccess getIzvestajiDataAccess();
 
 	public static DataAccessFactory getFactory(DataAccessFactoryType type) {

@@ -87,38 +87,6 @@ public class ZaposleniNaOdjelimaDataAccessImpl implements
 		return retVal;
 	}
 
-/*	@Override
-	public boolean azurirajPredmetNaSP(
-			PredmetNaStudijskomProgramu predmetNaSP) {
-		boolean retVal = false;
-		Connection conn = null;
-		CallableStatement cs = null;
-
-		String query = "{CALL azuriraj_p_na_sp(?, ?, ?, ?, ?, ?)}";
-		try {
-			conn = ConnectionPool.getInstance().checkOut();
-			cs = conn.prepareCall(query);
-			cs.setInt(1, predmetNaSP.getPredmet().getIdPredmeta());
-			cs.setInt(2, predmetNaSP.getStudijskiProgram().getIdSP());
-			cs.setByte(3, predmetNaSP.getSemestar());
-			cs.setString(4, predmetNaSP.getTipPredmeta());
-			cs.registerOutParameter(5, Types.BOOLEAN);
-			cs.registerOutParameter(6, Types.VARCHAR);
-
-			cs.execute();
-			retVal = cs.getBoolean(5);
-			if (!retVal)
-				MySQLUtilities.getInstance().showErrorMessage(cs.getString(6));
-		} catch (SQLException e) {
-			e.printStackTrace();
-			MySQLUtilities.getInstance().showSQLException(e);
-		} finally {
-			ConnectionPool.getInstance().checkIn(conn);
-			MySQLUtilities.getInstance().close(cs);
-		}
-		return retVal;
-	}*/
-
 	@Override
 	public boolean obrisiZaposlenogNaOdjelu(Date datumZaposlenja, String jmbZaposlenog, int idOdjela) {
 		boolean retVal = false;
