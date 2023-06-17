@@ -1,6 +1,7 @@
 package org.unibl.etf.bp.hospitalis.data.mysql;
 
 import java.sql.Connection;
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,20 +22,25 @@ public class PacijentNijeZadrzanDataAccessImpl implements PacijentNijeZadrzanDat
 		
 	List<PacijentNijeZadrzan> retVal=new ArrayList<>();
 	Connection conn = null;
-	PreparedStatement ps = null;
+	CallableStatement cs = null;
+	// PreparedStatement ps = null;
 	ResultSet rs = null;
 		
-	String query = "select p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja, "
+	/*String query = "select p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja, "
 				+ "zo.Adresa, zo.Telefon, pnz.DatumDolaska "
 				+ "from pacijent p "
 				+ "inner join zdravstveno_osiguranje zo on zo.DavalacOsiguranja=p.DavalacOsiguranja "
 				+ "inner join pacijent_nije_zadrzan pnz on pnz.JMBPacijenta=p.JMBPacijenta "
-				+ "order by p.Prezime asc; ";
+				+ "order by p.Prezime asc; ";*/
+	
+	String query = "SELECT * FROM nezadrzani_pacijenti";
 		
 		try {
 			conn = ConnectionPool.getInstance().checkOut();
-			ps = conn.prepareStatement(query);
-			rs = ps.executeQuery();
+			// ps = conn.prepareStatement(query);
+			cs = conn.prepareCall(query);
+			// rs = ps.executeQuery();
+			rs = cs.executeQuery();
 
 			while (rs.next())
 				retVal.add(new PacijentNijeZadrzan(new Pacijent(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getString(6),
@@ -44,7 +50,7 @@ public class PacijentNijeZadrzanDataAccessImpl implements PacijentNijeZadrzanDat
 			MySQLUtilities.getInstance().showSQLException(e);
 		} finally {
 			ConnectionPool.getInstance().checkIn(conn);
-			MySQLUtilities.getInstance().close(ps, rs);
+			MySQLUtilities.getInstance().close(cs, rs);
 		}
 		return retVal;		
 	}

@@ -53,8 +53,14 @@ public class GlavniProzor extends JFrame {
     private JMenuItem mntmDijagnostickiPregledi;
     private JMenuItem mntmPrepisivanje;
     private JMenuItem mntmPregledanje;
-//	private JMenu mnIzvestaji;
-//	private JMenuItem mntmProsecneOceneStudenata;
+	private JMenu mnIzvestaji;
+	private JMenuItem mntmRacuniPacijenata;
+	private JMenuItem mntmUkupanIznosRacuna2022;
+	private JMenuItem mntmUkupanIznosRacunaTekucaGodina;
+	private JMenuItem mntmProsjecnePlateDoktoraOdjeli;
+	private JMenuItem mntmProsjecnePlateMedicinskihTehnicaraOdjeli;
+	private JMenuItem mntmUkupanBrojZaposlenihOdjeli;
+	private JMenuItem mntmUkupnoEvidentiranihPacijenataTekucaGodina;
 
 	/**
 	 * Create the frame.
@@ -100,6 +106,7 @@ public class GlavniProzor extends JFrame {
 			menuBar.add(getMnPacijenti());
 			menuBar.add(getMnSobe());
 			menuBar.add(getMnDijagnostika());
+			menuBar.add(getMnIzvestaji());
 		}
 		return menuBar;
 	}
@@ -394,6 +401,119 @@ public class GlavniProzor extends JFrame {
 			mntmPregledanje.setMnemonic('P');
 		}
 		return mntmPregledanje;
+	}
+	
+	private JMenu getMnIzvestaji() {
+		if (mnIzvestaji == null) {
+			mnIzvestaji = new JMenu("Izveštaji");
+			mnIzvestaji.setMnemonic('I');
+			mnIzvestaji.add(getMntmRacuniPacijenata());
+			mnIzvestaji.add(getMntmUkupanIznosRacuna2022());
+			mnIzvestaji.add(getMntmUkupanIznosRacunaTekucaGodina());
+			mnIzvestaji.add(getMntmProsjecnePlateDoktoraOdjeli());
+			mnIzvestaji.add(getMntmProsjecnePlateMedicinskihTehnicaraOdjeli());
+			mnIzvestaji.add(getMntmUkupanBrojZaposlenihOdjeli());
+			mnIzvestaji.add(getMntmUkupnoEvidentiranihPacijenataTekucaGodina());
+		}
+		return mnIzvestaji;
+	}
+
+	private JMenuItem getMntmRacuniPacijenata() {
+		if (mntmRacuniPacijenata == null) {
+			mntmRacuniPacijenata = new JMenuItem(
+					"Računi pacijenata");
+			mntmRacuniPacijenata.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new IzvjestajiRacuniFrame().setVisible(true);
+				}
+			});
+			mntmRacuniPacijenata.setMnemonic('R');
+		}
+		return mntmRacuniPacijenata;
+	}
+	
+	private JMenuItem getMntmUkupanIznosRacuna2022() {
+		if (mntmUkupanIznosRacuna2022 == null) {
+			mntmUkupanIznosRacuna2022 = new JMenuItem(
+					"Ukupan iznos računa za 2022. godinu");
+			mntmUkupanIznosRacuna2022.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new IzvjestajiUkupanIznosRacuna2022Frame().setVisible(true);
+				}
+			});
+			mntmUkupanIznosRacuna2022.setMnemonic('U');
+		}
+		return mntmUkupanIznosRacuna2022;
+	}
+	
+	private JMenuItem getMntmUkupanIznosRacunaTekucaGodina() {
+		if (mntmUkupanIznosRacunaTekucaGodina == null) {
+			mntmUkupanIznosRacunaTekucaGodina = new JMenuItem(
+					"Ukupan iznos računa za tekuću godinu");
+			mntmUkupanIznosRacunaTekucaGodina.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new IzvjestajiUkupanIznosRacunaTekucaGodinaFrame().setVisible(true);
+				}
+			});
+			mntmUkupanIznosRacunaTekucaGodina.setMnemonic('T');
+		}
+		return mntmUkupanIznosRacunaTekucaGodina;
+	}
+	
+	private JMenuItem getMntmProsjecnePlateDoktoraOdjeli() {
+		if (mntmProsjecnePlateDoktoraOdjeli == null) {
+			mntmProsjecnePlateDoktoraOdjeli = new JMenuItem(
+					"Prosječne plate doktora po odjelima");
+			mntmProsjecnePlateDoktoraOdjeli.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new IzvjestajiProsjecnePlateDoktoraOdjeliFrame().setVisible(true);
+				}
+			});
+			mntmProsjecnePlateDoktoraOdjeli.setMnemonic('P');
+		}
+		return mntmProsjecnePlateDoktoraOdjeli;
+	}
+	
+	private JMenuItem getMntmProsjecnePlateMedicinskihTehnicaraOdjeli() {
+		if (mntmProsjecnePlateMedicinskihTehnicaraOdjeli == null) {
+			mntmProsjecnePlateMedicinskihTehnicaraOdjeli = new JMenuItem(
+					"Prosječne plate medicinskih tehničara po odjelima");
+			mntmProsjecnePlateMedicinskihTehnicaraOdjeli.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new IzvjestajiProsjecnePlateMedicinskihTehnicaraOdjeliFrame().setVisible(true);
+				}
+			});
+			mntmProsjecnePlateMedicinskihTehnicaraOdjeli.setMnemonic('P');
+		}
+		return mntmProsjecnePlateMedicinskihTehnicaraOdjeli;
+	}
+	
+	private JMenuItem getMntmUkupanBrojZaposlenihOdjeli() {
+		if (mntmUkupanBrojZaposlenihOdjeli == null) {
+			mntmUkupanBrojZaposlenihOdjeli = new JMenuItem(
+					"Ukupan broj zaposlenih po odjelima");
+			mntmUkupanBrojZaposlenihOdjeli.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new IzvjestajiUkupanBrojZaposlenihOdjeliFrame().setVisible(true);
+				}
+			});
+			mntmUkupanBrojZaposlenihOdjeli.setMnemonic('U');
+		}
+		return mntmUkupanBrojZaposlenihOdjeli;
+	}
+	
+	private JMenuItem getMntmUkupnoEvidentiranihPacijenataTekucaGodina() {
+		if (mntmUkupnoEvidentiranihPacijenataTekucaGodina == null) {
+			mntmUkupnoEvidentiranihPacijenataTekucaGodina = new JMenuItem(
+					"Ukupan broj evidentiranih pacijenata u tekućoj godini");
+			mntmUkupnoEvidentiranihPacijenataTekucaGodina.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new IzvjestajiUkupnoEvidentiranihPacijenataTekucaGodinaFrame().setVisible(true);
+				}
+			});
+			mntmUkupnoEvidentiranihPacijenataTekucaGodina.setMnemonic('U');
+		}
+		return mntmUkupnoEvidentiranihPacijenataTekucaGodina;
 	}
 	
 }

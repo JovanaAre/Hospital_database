@@ -1,6 +1,7 @@
 package org.unibl.etf.bp.hospitalis.data.mysql;
 
 import java.sql.Connection;
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,10 +25,11 @@ public class PregledanjeDataAccessImpl implements PregledanjeDataAccess {
 		
 	List<Pregledanje> retVal=new ArrayList<>();
 	Connection conn = null;
-	PreparedStatement ps = null;
+	CallableStatement cs = null;
+	// PreparedStatement ps = null;
 	ResultSet rs = null;
 		
-	String query = "select pr.DatumPregleda, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon, "
+	/*String query = "select pr.DatumPregleda, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon, "
 			+ "d.Specijalizacija, p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja, "
 			+ "zo.Adresa, zo.Telefon, preg.IdPregleda, preg.NazivPregleda, preg.CijenaPregleda, pr.Dijagnoza, pr.Misljenje "
 			+ "from pregledanje pr "
@@ -36,12 +38,16 @@ public class PregledanjeDataAccessImpl implements PregledanjeDataAccess {
 			+ "inner join pacijent p on p.JMBPacijenta=pr.JMBPacijenta "
 			+ "inner join zdravstveno_osiguranje zo on zo.DavalacOsiguranja=p.DavalacOsiguranja "
 			+ "inner join dijagnosticki_pregled preg on preg.IdPregleda=pr.IdPregleda "
-			+ "order by pr.DatumPregleda asc; ";
+			+ "order by pr.DatumPregleda asc; ";*/
+	
+	String query = "SELECT * FROM pregledanja_pacijenata";
 		
 		try {
 			conn = ConnectionPool.getInstance().checkOut();
-			ps = conn.prepareStatement(query);
-			rs = ps.executeQuery();
+			// ps = conn.prepareStatement(query);
+			cs = conn.prepareCall(query);
+			//rs = ps.executeQuery();
+			rs = cs.executeQuery();
 			
 			while (rs.next())
 				retVal.add(new Pregledanje(rs.getDate(1), new Doktor(new Zaposleni(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6),
@@ -54,7 +60,7 @@ public class PregledanjeDataAccessImpl implements PregledanjeDataAccess {
 			MySQLUtilities.getInstance().showSQLException(e);
 		} finally {
 			ConnectionPool.getInstance().checkIn(conn);
-			MySQLUtilities.getInstance().close(ps, rs);
+			MySQLUtilities.getInstance().close(cs, rs);
 		}
 		return retVal;		
 	}

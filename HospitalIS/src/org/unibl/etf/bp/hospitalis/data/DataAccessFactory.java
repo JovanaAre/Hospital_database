@@ -20,7 +20,7 @@ public abstract class DataAccessFactory {
     public abstract DijagnostickiPregledDataAccess getDijagnostickiPregledDataAccess();
     public abstract PacijentZadrzanDataAccess getPacijentZadrzanDataAccess();
     public abstract PregledanjeDataAccess getPregledanjeDataAccess();
-//	public abstract IzvestajiDataAccess getIzvestajiDataAccess();
+    public abstract IzvjestajiDataAccess getIzvjestajiDataAccess();
 
 	public static DataAccessFactory getFactory(DataAccessFactoryType type) {
 		if (DataAccessFactoryType.MySQL.equals(type)) {

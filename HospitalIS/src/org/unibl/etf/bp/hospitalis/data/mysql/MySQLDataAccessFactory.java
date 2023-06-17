@@ -17,6 +17,7 @@ import org.unibl.etf.bp.hospitalis.data.SobaDataAccess;
 import org.unibl.etf.bp.hospitalis.data.DijagnostickiPregledDataAccess;
 import org.unibl.etf.bp.hospitalis.data.PacijentZadrzanDataAccess;
 import org.unibl.etf.bp.hospitalis.data.PregledanjeDataAccess;
+import org.unibl.etf.bp.hospitalis.data.IzvjestajiDataAccess;
 
 public class MySQLDataAccessFactory extends DataAccessFactory {
 
@@ -100,9 +101,9 @@ public class MySQLDataAccessFactory extends DataAccessFactory {
 		return new PregledanjeDataAccessImpl();
 	}
 
-//	@Override
-//	public IzvestajiDataAccess getIzvestajiDataAccess() {
-//		return new IzvestajiDataAccessImpl();
-//	}
+	@Override
+	public IzvjestajiDataAccess getIzvjestajiDataAccess() {
+		return new IzvjestajiDataAccessImpl();
+	}
 
 }

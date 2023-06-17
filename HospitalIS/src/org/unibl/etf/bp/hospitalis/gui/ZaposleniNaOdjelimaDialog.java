@@ -191,13 +191,13 @@ public class ZaposleniNaOdjelimaDialog extends JDialog {
 		}
 		{
 			JLabel lblDatumZaposlenja = new JLabel("Datum zaposlenja (format GGGG-MM-DD):");
-			lblDatumZaposlenja.setBounds(10, 59, 125, 14);
+			lblDatumZaposlenja.setBounds(10, 59, 250, 14);
 			contentPanel.add(lblDatumZaposlenja);
 		}
 		{
 			this.tfDatumZaposlenja = new JTextField();
 			this.tfDatumZaposlenja.setColumns(10);
-			this.tfDatumZaposlenja.setBounds(10, 73, 125, 20);
+			this.tfDatumZaposlenja.setBounds(10, 73, 250, 20);
 			contentPanel.add(this.tfDatumZaposlenja);
 		}
 

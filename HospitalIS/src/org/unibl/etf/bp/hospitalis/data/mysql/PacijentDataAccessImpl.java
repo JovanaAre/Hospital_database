@@ -62,8 +62,6 @@ public class PacijentDataAccessImpl implements PacijentDataAccess{
 			ps.setString(1, pacijent.getJmbPacijenta());
 			ps.setString(2, pacijent.getIme());
 			ps.setString(3, pacijent.getPrezime());
-			// java.util.Date utilDate = zaposleni.getDatumRodjenja();
-			// java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 			ps.setDate(4,  pacijent.getDatumRodjenja());
 			ps.setString(5, pacijent.getAdresa());
 			ps.setString(6, pacijent.getTelefon());

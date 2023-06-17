@@ -1,6 +1,7 @@
 package org.unibl.etf.bp.hospitalis.data.mysql;
 
 import java.sql.Connection;
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,10 +25,11 @@ public class PrepisivanjeDataAccessImpl implements PrepisivanjeDataAccess {
 		
 	List<Prepisivanje> retVal=new ArrayList<>();
 	Connection conn = null;
-	PreparedStatement ps = null;
+	CallableStatement cs = null;
+	// PreparedStatement ps = null;
 	ResultSet rs = null;
 		
-	String query = "select pr.DatumPrepisivanja, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon, "
+	/*String query = "select pr.DatumPrepisivanja, z.JMB, z.Ime, z.Prezime, z.Email, z.DatumRodjenja, z.Adresa, z.Plata, z.Pol, z.Telefon, "
 			+ "d.Specijalizacija, p.JMBPacijenta, p.Ime, p.Prezime, p.DatumRodjenja, p.Adresa, p.Telefon, p.Pol, p.KrvnaGrupa, zo.DavalacOsiguranja, "
 			+ "zo.Adresa, zo.Telefon, l.IdLijeka, l.NazivLijeka, l.TipLijeka, l.CijenaLijeka, pr.KolicinaLijeka "
 			+ "from prepisivanje pr "
@@ -36,12 +38,16 @@ public class PrepisivanjeDataAccessImpl implements PrepisivanjeDataAccess {
 			+ "inner join pacijent p on p.JMBPacijenta=pr.JMBPacijenta "
 			+ "inner join zdravstveno_osiguranje zo on zo.DavalacOsiguranja=p.DavalacOsiguranja "
 			+ "inner join lijek l on l.IdLijeka=pr.IdLijeka "
-			+ "order by pr.DatumPrepisivanja asc; ";
+			+ "order by pr.DatumPrepisivanja asc; ";*/
+	
+	String query = "SELECT * FROM prepisivanja_lijekova";
 		
 		try {
 			conn = ConnectionPool.getInstance().checkOut();
-			ps = conn.prepareStatement(query);
-			rs = ps.executeQuery();
+			// ps = conn.prepareStatement(query);
+			cs = conn.prepareCall(query);
+			// rs = ps.executeQuery();
+			rs = cs.executeQuery();
 			
 			while (rs.next())
 				retVal.add(new Prepisivanje(rs.getDate(1), new Doktor(new Zaposleni(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6),
@@ -55,7 +61,7 @@ public class PrepisivanjeDataAccessImpl implements PrepisivanjeDataAccess {
 			MySQLUtilities.getInstance().showSQLException(e);
 		} finally {
 			ConnectionPool.getInstance().checkIn(conn);
-			MySQLUtilities.getInstance().close(ps, rs);
+			MySQLUtilities.getInstance().close(cs, rs);
 		}
 		return retVal;		
 	}
