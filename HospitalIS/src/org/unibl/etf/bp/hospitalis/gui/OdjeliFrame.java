@@ -50,8 +50,6 @@ public class OdjeliFrame extends JFrame{
 	private JButton btnPrikazatiSve;
 	private JScrollPane scrollPane;
 	private JTable table;
-	// @SuppressWarnings("rawtypes")
-	// private JComboBox cbDoktori;
 
 	/**
 	 * Create the frame.
@@ -144,8 +142,6 @@ public class OdjeliFrame extends JFrame{
 					TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			panelPretraga.setLayout(null);
 			panelPretraga.setPreferredSize(new Dimension(200, 70));
-			//panelPretraga.add(getCbZaposleni());
-	       // panelPretraga.add(getLblDoktori());
 			panelPretraga.add(getLblNazivOdjela());
 			panelPretraga.add(getTfNazivOdjela());
 			panelPretraga.add(getBtnPretraziti());
@@ -286,26 +282,6 @@ public class OdjeliFrame extends JFrame{
 		return btnPrihvatiti;
 	}
 
-	/*private JLabel getLblDoktori() {
-		if (lblDoktori == null) {
-			lblDoktori = new JLabel("Doktori:");
-			lblDoktori.setBounds(10, 20, 254, 14);
-		}
-		return lblDoktori;
-	}
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private JComboBox getCbZaposleni() {
-		if (cbDoktori == null) {
-			cbDoktori = new JComboBox(Utilities.getDataAccessFactory()
-					.getDoktorDataAccess().sviDoktori()
-					.toArray(new Doktor[] {}));
-			cbDoktori.setBounds(10, 37, 254, 20);
-			cbDoktori.setSelectedIndex(-1);
-		}
-		return cbDoktori;
-	}*/
-	
 	private JLabel getLblNazivOdjela() {
 		if (lblNazivOdjela == null) {
 			lblNazivOdjela = new JLabel("Naziv odjela:");
@@ -381,7 +357,7 @@ public class OdjeliFrame extends JFrame{
 			table.setFillsViewportHeight(true);
 			table.getColumnModel().getColumn(0).setPreferredWidth(250);
 			table.getColumnModel().getColumn(1).setPreferredWidth(250);	
-			table.getColumnModel().getColumn(2).setPreferredWidth(250);
+			table.getColumnModel().getColumn(2).setPreferredWidth(400);
 			table.getColumnModel().getColumn(3).setPreferredWidth(250);	
 			table.getColumnModel().getColumn(4).setPreferredWidth(250);	
 			table.getColumnModel().getColumn(5).setPreferredWidth(250);	

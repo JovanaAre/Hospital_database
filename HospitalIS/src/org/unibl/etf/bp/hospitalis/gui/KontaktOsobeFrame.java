@@ -150,7 +150,7 @@ public class KontaktOsobeFrame extends JFrame {
 					if (kod.getDialogResult().equalsIgnoreCase("OK")) {
 						osveziTabelu();
 						JOptionPane.showMessageDialog(ovaj,
-								"Nova osoba je uspje�no dodana!", "Poruka",
+								"Nova osoba je uspješno dodana!", "Poruka",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
@@ -170,7 +170,7 @@ public class KontaktOsobeFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Osoba nije odabrana!", "Gre�ka",
+								"Osoba nije odabrana!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						KontaktOsoba odabranaOsoba = ((KontaktOsobaTableModel) table
@@ -181,7 +181,7 @@ public class KontaktOsobeFrame extends JFrame {
 						if (zod.getDialogResult().equalsIgnoreCase("OK")) {
 							osveziTabelu();
 							JOptionPane.showMessageDialog(ovaj,
-									"Osoba je uspje�no a�urirana!", "Poruka",
+									"Osoba je uspješno ažurirana!", "Poruka",
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 					}
@@ -202,7 +202,7 @@ public class KontaktOsobeFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Osoba nije odabrana!", "Gre�ka",
+								"Osoba nije odabrana!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						KontaktOsoba odabranaOsoba = ((KontaktOsobaTableModel) table
@@ -211,7 +211,7 @@ public class KontaktOsobeFrame extends JFrame {
 						int odabir = JOptionPane
 								.showOptionDialog(
 										ovaj,
-										"Da li ste sigurni da �elite obrisati odabranu osobu?",
+										"Da li ste sigurni da želite obrisati odabranu osobu?",
 										"Potvrda brisanja",
 										JOptionPane.YES_NO_OPTION,
 										JOptionPane.QUESTION_MESSAGE, null,
@@ -225,12 +225,12 @@ public class KontaktOsobeFrame extends JFrame {
 											odabranaOsoba.getJmbKontaktOsobe())) {
 								osveziTabelu();
 								JOptionPane.showMessageDialog(ovaj,
-										"Osoba je uspje�no obrisana!",
+										"Osoba je uspješno obrisana!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 							} else
 								JOptionPane.showMessageDialog(ovaj,
-										"Osoba nije uspje�no obrisana!",
+										"Osoba nije uspješno obrisana!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 						}
@@ -252,7 +252,7 @@ public class KontaktOsobeFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Osoba nije odabrana!", "Gre�ka",
+								"Osoba nije odabrana!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						odabranaOsoba = ((KontaktOsobaTableModel) table.getModel())
@@ -309,7 +309,7 @@ public class KontaktOsobeFrame extends JFrame {
 					else
 						JOptionPane.showMessageDialog(ovaj,
 								"JMB kontakt osobe nije pravilno popunjen!",
-								"Gre�ka", JOptionPane.ERROR_MESSAGE);
+								"Greška", JOptionPane.ERROR_MESSAGE);
 				}
 			});
 			btnPretraziti.setBounds(274, 37, 100, 23);
@@ -346,8 +346,10 @@ public class KontaktOsobeFrame extends JFrame {
 			table = new JTable(new KontaktOsobaTableModel(kontaktOsobe));
 			table.setFillsViewportHeight(true);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			table.getColumnModel().getColumn(0).setPreferredWidth(300);
-			table.getColumnModel().getColumn(1).setPreferredWidth(450);
+			table.getColumnModel().getColumn(0).setPreferredWidth(250);
+			table.getColumnModel().getColumn(1).setPreferredWidth(100);
+			table.getColumnModel().getColumn(2).setPreferredWidth(100);
+			table.getColumnModel().getColumn(3).setPreferredWidth(350);
 		}
 		return table;
 	}

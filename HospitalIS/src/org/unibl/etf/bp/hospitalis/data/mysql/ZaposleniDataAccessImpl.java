@@ -90,8 +90,6 @@ public class ZaposleniDataAccessImpl implements ZaposleniDataAccess{
 			ps.setString(2, zaposleni.getIme());
 			ps.setString(3, zaposleni.getPrezime());
 			ps.setString(4, zaposleni.getEmail());
-			// java.util.Date utilDate = zaposleni.getDatumRodjenja();
-			// java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 			ps.setDate(5,  zaposleni.getDatumRodjenja());
 			ps.setString(6, zaposleni.getAdresa());
 			ps.setDouble(7, zaposleni.getPlata());

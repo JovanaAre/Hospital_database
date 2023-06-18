@@ -48,11 +48,11 @@ drop procedure if exists ukupan_broj_zaposlenih_odjeli;
 delimiter $$
 create procedure ukupan_broj_zaposlenih_odjeli()
 begin
-    select o.NazivOdjela, count(rn.DatumZaposlenja) as BrojZaposlenih
-    from radi_na rn
-    inner join odjel o on o.IdOdjela=rn.IdOdjela
-    inner join zaposleni z on z.JMB=rn.JMB
-    group by rn.IdOdjela
+    select o.NazivOdjela, count(DatumZaposlenja) as BrojZaposlenih
+    from odjel o
+    left outer join radi_na rn on rn.IdOdjela=o.IdOdjela
+    left outer join zaposleni z on z.JMB=rn.JMB
+    group by o.IdOdjela
     order by BrojZaposlenih desc;
 end$$
 delimiter ;

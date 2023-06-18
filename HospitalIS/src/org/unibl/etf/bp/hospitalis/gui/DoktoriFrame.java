@@ -43,8 +43,6 @@ public class DoktoriFrame extends JFrame{
 	private JButton btnIzmeniti;
 	private JButton btnObrisati;
 	private JButton btnPrihvatiti;
-	// private JLabel lblJmb;
-	// private JTextField tfJmb;
 	private JLabel lblDoktori;
 	private JButton btnPretraziti;
 	private JButton btnPrikazatiSve;
@@ -86,18 +84,6 @@ public class DoktoriFrame extends JFrame{
 			ftm.fireTableDataChanged();
 		
 	}
-	
-	/*private void osveziTabelu() {
-		if (Utilities.isSearchPatternValid(tfJmb.getText())) {
-
-			doktori = Utilities.getDataAccessFactory().getDoktorDataAccess()
-					.doktori(tfJmb.getText());
-
-			DoktorTableModel ftm = (DoktorTableModel) table.getModel();
-			ftm.setPodaci(doktori);
-			ftm.fireTableDataChanged();
-		}
-	}*/
 	
 	private void osveziTabeluZaSve() {
 		
@@ -300,30 +286,6 @@ public class DoktoriFrame extends JFrame{
 		}
 		return btnPrihvatiti;
 	}
-/*	private JLabel getLblJmb() {
-		if (lblJmb == null) {
-			lblJmb = new JLabel("JMB doktora:");
-			lblJmb.setBounds(10, 21, 254, 14);
-		}
-		return lblJmb;
-	}
-
-	private JTextField getTfJmb() {
-		if (tfJmb == null) {
-			tfJmb = new JTextField();
-			tfJmb.setText("*");
-			tfJmb.addKeyListener(new KeyAdapter() {
-				@Override
-				public void keyPressed(KeyEvent arg0) {
-					if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
-						btnPretraziti.doClick();
-				}
-			});
-			tfJmb.setBounds(10, 38, 254, 20);
-			tfJmb.setColumns(10);
-		}
-		return tfJmb;
-	}*/
 
 	private JLabel getLblDoktori() {
 		if (lblDoktori == null) {

@@ -32,11 +32,8 @@ public class KontaktOsobaDataAccessImpl implements KontaktOsobaDataAccess {
 			rs = ps.executeQuery();
 
 			while (rs.next())
-			//{
 				retVal.add(new KontaktOsoba(rs.getString(1), rs.getString(2), rs
 						.getString(3), rs.getString(4)));
-				// System.out.println(rs.getString(1));
-			//} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 			MySQLUtilities.getInstance().showSQLException(e);

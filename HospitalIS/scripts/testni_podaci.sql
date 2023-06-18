@@ -42,7 +42,7 @@ insert into zaposleni (JMB, Ime, Prezime, Email, DatumRodjenja, Adresa, Plata, P
 insert into zaposleni (JMB, Ime, Prezime, Email, DatumRodjenja, Adresa, Plata, Pol, Telefon) values ('1112977106179', 'Marica', 'Bojić', 'marica.bojic@gmail.com', '1977-12-11', 'Ulica 166', 2500.00, 'ženski', '+387 (0) 65 106 912');
 insert into zaposleni (JMB, Ime, Prezime, Email, DatumRodjenja, Adresa, Plata, Pol, Telefon) values ('0806987113138', 'Milutin', 'Bosnić', 'milutin.bosnic@gmail.com', '1987-06-08', 'Ulica 155', 1300.00, 'muški', '+387 (0) 65 922 194');
 insert into zaposleni (JMB, Ime, Prezime, Email, DatumRodjenja, Adresa, Plata, Pol, Telefon) values ('1704976119194', 'Milica', 'Ilić', 'milica.ilicic@gmail.com', '1976-04-17', 'Ulica 206', 1600.00, 'ženski', '+387 (0) 66 122 923');
-select * from zaposleni;
+-- select * from zaposleni;
 
 insert into doktor (JMB, Specijalizacija) values ('2002972126116', 'Endokrinolog');
 insert into doktor (JMB, Specijalizacija) values ('3010981104134', 'Endokrinolog');
@@ -66,7 +66,7 @@ insert into doktor (JMB, Specijalizacija) values ('2909982101124', 'Infektolog')
 insert into doktor (JMB, Specijalizacija) values ('1702977107179', 'Infektolog');
 insert into doktor (JMB, Specijalizacija) values ('0509982101124', 'Transfuziolog');
 insert into doktor (JMB, Specijalizacija) values ('1112977106179', 'Transfuziolog');
-select * from doktor;
+-- select * from doktor;
 
 insert into med_sestra_tehnicar (JMB, StrucnaSprema) values ('2907969120462', 'medicinska sestra/tehničar');
 insert into med_sestra_tehnicar (JMB, StrucnaSprema) values ('1912974107101', 'diplomirana medicinska sestra/tehničar');
@@ -90,20 +90,20 @@ insert into med_sestra_tehnicar (JMB, StrucnaSprema) values ('2101987118138', 'v
 insert into med_sestra_tehnicar (JMB, StrucnaSprema) values ('2410976113194', 'diplomirana medicinska sestra/tehničar');
 insert into med_sestra_tehnicar (JMB, StrucnaSprema) values ('0806987113138', 'medicinska sestra/tehničar');
 insert into med_sestra_tehnicar (JMB, StrucnaSprema) values ('1704976119194', 'diplomirana medicinska sestra/tehničar');
-select * from med_sestra_tehnicar;
+-- select * from med_sestra_tehnicar;
 
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (10000, 'Endokrinologija', '12 Beba bb, Banja Luka', '3010981104134', '1912974107101');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (11000, 'Kardiologija', '12 Beba bb, Banja Luka', '1610963129179', '1711977100179');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (12000, 'Urologija', '12 Beba bb, Banja Luka', '2206976113194', '1811981104134');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (13000, 'Stomatologija', 'Zdrave Korde 4, Banja Luka', '0506974107101', '3110963127179');
-insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (14000, 'Psihijatrija', 'Ulica Mačvanska 17, Banja Luka', '0608977108179', '0801976113194');
+insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (14000, 'Psihijatrija', 'Mačvanska 17, Banja Luka', '0608977108179', '0801976113194');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (15000, 'Ortopedija', '12 Beba bb, Banja Luka', '3112981104134', '0304974107101');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (16000, 'Pedijatrija', '12 Beba bb, Banja Luka', '1911963129179', '2512977100179');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (17000, 'Onkologija', '12 Beba bb, Banja Luka', '2806976118194', '2310981106134');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (18000, 'Radiologija', '12 Beba bb, Banja Luka', '0501974101101', '2406963129179');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (19000, 'Infektologija', '12 Beba bb, Banja Luka', '1702977107179', '2410976113194');
 insert into odjel (IdOdjela, NazivOdjela, Adresa, JMBSefaOdjela, JMBGlavneMedSestreTehnicara) values (11100, 'Transfuziologija', 'Zdrave Korde 4, Banja Luka', '1112977106179', '1704976119194');
-select * from odjel;
+-- select * from odjel;
 
 insert into radi_na (DatumZaposlenja, JMB, IdOdjela) values ('2009-11-04', '2002972126116', 10000);
 insert into radi_na (DatumZaposlenja, JMB, IdOdjela) values ('2011-05-16', '3010981104134', 10000);
@@ -149,7 +149,7 @@ insert into radi_na (DatumZaposlenja, JMB, IdOdjela) values ('2008-02-27', '0509
 insert into radi_na (DatumZaposlenja, JMB, IdOdjela) values ('2016-12-13', '1112977106179', 11100);
 insert into radi_na (DatumZaposlenja, JMB, IdOdjela) values ('2019-10-26', '0806987113138', 11100);
 insert into radi_na (DatumZaposlenja, JMB, IdOdjela) values ('1999-05-29', '1704976119194', 11100);
-select * from radi_na;
+-- select * from radi_na;
 
 insert into telefon_odjela (IdOdjela, Telefon) values (10000, '+387 (0) 51 342 505');
 insert into telefon_odjela (IdOdjela, Telefon) values (10000, '+387 (0) 51 342 563');
@@ -165,14 +165,14 @@ insert into telefon_odjela (IdOdjela, Telefon) values (17000, '+387 (0) 51 342 5
 insert into telefon_odjela (IdOdjela, Telefon) values (18000, '+387 (0) 51 342 249');
 insert into telefon_odjela (IdOdjela, Telefon) values (19000, '+387 (0) 51 342 473');
 insert into telefon_odjela (IdOdjela, Telefon) values (11100, '+387 (0) 51 233 859');
-select * from telefon_odjela;
+-- select * from telefon_odjela;
 
 insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('FZO RS','Zdrave Korde 8, Banja Luka', '+387 (0) 51 249 100');
 insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('Uniqa osiguranje','Jevrejska 99, Banja Luka', '+387 (0) 51 223 770');
 insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('Vienna osiguranje','Pave Radana 12, Banja Luka', '+387 (0) 51 232 360');
 insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('Dunav osiguranje','Veselina Masleše 28, Banja Luka', '+387 (0) 80 050 600');
 insert into zdravstveno_osiguranje (DavalacOsiguranja, Adresa, Telefon) values ('Wiener osiguranje','Kninska 1a, Banja Luka', '+387 (0) 51 931 100');
-select * from zdravstveno_osiguranje;
+-- select * from zdravstveno_osiguranje;
 
 insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1502973101187', 'Danilo', 'Dragić','1973-02-15', 'Ulica 104','+387 (0) 66 321 147', 'muški', 'AB', 'FZO RS');
 insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1108969107983', 'Milica', 'Momčilović', '1969-08-11', 'Ulica 12','+387 (0) 65 132 450', 'ženski', 'A', 'Wiener osiguranje');
@@ -187,7 +187,7 @@ insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon
 insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('2605981101865', 'Momčilo', 'Lekić', '1981-05-26', 'Ulica 41','+387 (0) 65 456 123', 'muški', '0', 'Wiener osiguranje');
 insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('1402975106903', 'Dejana', 'Marjanović', '1975-02-14', 'Ulica 2','+387 (0) 66 759 486', 'ženski', '0', 'Uniqa osiguranje');
 insert into pacijent (JMBPacijenta, Ime, Prezime, DatumRodjenja, Adresa, Telefon, Pol, KrvnaGrupa, DavalacOsiguranja) values ('0111983109487', 'Jovana', 'Rapić', '1983-11-01', 'Ulica 72','+387 (0) 66 153 759', 'ženski', 'AB', 'FZO RS');
-select * from pacijent;
+-- select * from pacijent;
 
 insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (10001, 25.00, 3);
 insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (10002, 25.00, 2);
@@ -216,12 +216,12 @@ insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (19001, 30.00, 2);
 insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (19002, 30.00, 1);
 insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (19003, 30.00, 1);
 insert into soba (BrojSobe, CijenaSobe, BrojKreveta ) values (19004, 30.00, 2);
-select * from soba;
+-- select * from soba;
 
-insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('0103972106154', 'Marija', 'Dragić', '+387 (0) 65 482 320'); -- zena
-insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('2112989103189', 'Ivan', 'Momčilović', '+387 (0) 66 197 878'); -- sin 
-insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('1405996101735', 'Jelena', 'Stanojević', '+387 (0) 65 914 112'); -- kcerka
-insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('0406972109892', 'Mirjana', 'Radišić', '+387 (0) 66 789 346'); -- majka
+insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('0103972106154', 'Marija', 'Dragić', '+387 (0) 65 482 320');
+insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('2112989103189', 'Ivan', 'Momčilović', '+387 (0) 66 197 878');
+insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('1405996101735', 'Jelena', 'Stanojević', '+387 (0) 65 914 112');
+insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('0406972109892', 'Mirjana', 'Radišić', '+387 (0) 66 789 346');
 insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('0204969129106', 'Marina', 'Ilić', '+387 (0) 66 231 896');
 insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('1803993102941', 'Siniša', 'Jovanović', '+387 (0) 782 325');
 insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('1905959178450', 'Desanka', 'Živanović', '+387 (0) 65 211 699');
@@ -231,44 +231,44 @@ insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('2701
 insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('0911983189124', 'Dajana', 'Lekić', '+387 (0) 66 913 254');
 insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('1703996104396', 'Duško', 'Marjanović', '+387 (0) 66 696 555');
 insert into kontakt_osoba (JMBKontaktOsobe, Ime, Prezime, Telefon) values ('3108983119185', 'Biljana', 'Rapić', '+387 (0) 65 876 357');
-select * from kontakt_osoba;
+-- select * from kontakt_osoba;
 
 insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, BrojSobe, JMBKontaktOsobe) values ('1502973101187', '2022-10-15', NULL, 17002, '0103972106154'); -- infekcija pluca ++ 
 insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, BrojSobe, JMBKontaktOsobe) values ('1108969107983', '2020-08-31', NULL, 19001, '2112989103189'); -- covid-19 infekcija ++
 insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, BrojSobe, JMBKontaktOsobe) values ('1907971101492','2023-02-17', NULL, 14003, '1405996101735'); -- shizofrenija ++
 insert into pacijent_zadrzan (JMBPacijenta, DatumPrijema, DatumOtpustanja, BrojSobe, JMBKontaktOsobe) values ('0702998129315','2022-05-24', NULL, 19003, '0406972109892'); -- malign obolj ++
-select * from pacijent_zadrzan;
+-- select * from pacijent_zadrzan;
 
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('1211969134934', '2022-07-16'); -- ++
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('1803016112381', '2022-11-20'); -- ++
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('2201984108175', '2023-01-15'); -- ++
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('2304988101562', '2022-12-07'); -- ++
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('2711019139654', '2022-10-31'); -- ++
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('1509967103517', '2023-03-23'); -- ++
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('2605981101865', '2020-06-11'); -- ++
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('1402975106903', '2021-08-21'); -- ++
-insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('0111983109487', '2020-02-09'); -- ++
-select * from pacijent_nije_zadrzan;
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('1211969134934', '2022-07-16');
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('1803016112381', '2022-11-20');
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('2201984108175', '2023-01-15');
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('2304988101562', '2022-12-07');
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('2711019139654', '2022-10-31');
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('1509967103517', '2023-03-23');
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('2605981101865', '2020-06-11');
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('1402975106903', '2021-08-21');
+insert into pacijent_nije_zadrzan (JMBPacijenta, DatumDolaska) values ('0111983109487', '2020-02-09');
+-- select * from pacijent_nije_zadrzan;
 
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (1, 'Septolete', 'Pastile', 7.00); -- Akutni streptokokni tonzilitis ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (2, 'Hemomycin', 'Film tableta', 21.30); -- covid -19, infekcija ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (3, 'Panklav', 'Sirup', 12.50); -- akutnog bakterijski sinuzitisa ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (4, 'Uvin H', 'Čaj', 3.60); -- urologija, urinarna infekcija ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (5, 'Voltaren', 'Gel', 19.70); -- ortopedija, ozlijeda tetiva i ligamenata ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (6, 'Ampril', 'Tablete', 8.10); -- hipertenzija, kardiologija ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (7, 'Gliclada', 'Tablete', 15.90); -- snizava secer u krvi, endokrinologija, hiperglikemija ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (8, 'Apaurin', 'Film tablete', 10.20); -- anksioznost ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (9, 'Haldol', 'Otopina za injekciju', 10.60); -- shizofrenija ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (10, 'Lexoderm', 'Sprej,krema', 21.50); -- vodene ospice (male boginje) ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (11, 'Naturoplex', 'Film tablete', 18.90); -- urologija, urinarna infekcija ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (12, 'Amoksicilin', 'Pastile', 5.20); -- Akutni streptokokni tonzilitis ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (13, 'Duoclav', 'Film tablete', 11.40); -- bakterijska infekcija zuba ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (14, 'Azibiot', 'Film tablete', 3.30); -- infekcija pluca ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (15, 'Panatus', 'Film tablete', 8.70); -- kasalj ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (16, 'Lupocet junior', 'Sirup', 7.60); -- snizava temperaturu + panklav ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (17, 'Neofen', 'Tablete', 8.10); -- protiv bolova -- ++
-insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (18, 'Ecansya', 'Film tablete', 59.90); -- protiv malign obolj crijeva ++
-select * from lijek;
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (1, 'Septolete', 'Pastile', 7.00);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (2, 'Hemomycin', 'Film tableta', 21.30);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (3, 'Panklav', 'Sirup', 12.50);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (4, 'Uvin H', 'Čaj', 3.60);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (5, 'Voltaren', 'Gel', 19.70);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (6, 'Ampril', 'Tablete', 8.10);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (7, 'Gliclada', 'Tablete', 15.90);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (8, 'Apaurin', 'Film tablete', 10.20);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (9, 'Haldol', 'Otopina za injekciju', 10.60);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (10, 'Lexoderm', 'Sprej,krema', 21.50);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (11, 'Naturoplex', 'Film tablete', 18.90);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (12, 'Amoksicilin', 'Pastile', 5.20);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (13, 'Duoclav', 'Film tablete', 11.40);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (14, 'Azibiot', 'Film tablete', 3.30);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (15, 'Panatus', 'Film tablete', 8.70);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (16, 'Lupocet junior', 'Sirup', 7.60);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (17, 'Neofen', 'Tablete', 8.10);
+insert into lijek (IdLijeka, NazivLijeka, TipLijeka, CijenaLijeka) values (18, 'Ecansya', 'Film tablete', 59.90);
+-- select * from lijek;
 
 insert into prepisivanje (DatumPrepisivanja, JMBDoktora, JMBPacijenta, IdLijeka, KolicinaLijeka) values ('2022-07-16', '1408987118138', '1211969134934', 11, 1);
 insert into prepisivanje (DatumPrepisivanja, JMBDoktora, JMBPacijenta, IdLijeka, KolicinaLijeka) values ('2022-07-16', '1408987118138', '1211969134934', 4, 1);
@@ -288,27 +288,27 @@ insert into prepisivanje (DatumPrepisivanja, JMBDoktora, JMBPacijenta, IdLijeka,
 insert into prepisivanje (DatumPrepisivanja, JMBDoktora, JMBPacijenta, IdLijeka, KolicinaLijeka) values ('2021-08-21', '1404969129462', '1402975106903', 13, 1);
 insert into prepisivanje (DatumPrepisivanja, JMBDoktora, JMBPacijenta, IdLijeka, KolicinaLijeka) values ('2020-02-09', '1702977107179', '0111983109487', 12, 1);
 insert into prepisivanje (DatumPrepisivanja, JMBDoktora, JMBPacijenta, IdLijeka, KolicinaLijeka) values ('2020-02-09', '1702977107179', '0111983109487', 1, 1);
-select * from prepisivanje;
+-- select * from prepisivanje;
 
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (10101, 'Spec. pregled endokrinologa', 45.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (11101, 'Spec pregled kardiologa', 50.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (12201, 'Spec pregled urologa', 45.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (13301, 'Spec pregled stomatologa', 45.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (14401, 'Spec. pregled psihijatra', 55.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (15501, 'Spec. pregled ortopeda', 45.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (16601, 'Spec. pregled pedijatra', 40.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (17701, 'Spec. pregled onkologa', 50.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (19901, 'Spec. pregled infektologa', 50.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (13302, 'Dentalni RTG', 30.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (14402, 'Psihijatrijska anamneza', 60.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (17702, 'Ultrazvuk abdomena', 70.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18801, 'CT glave', 140.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18802, 'RTG pluća', 40.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (11102, 'EKG srca', 20.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18803, 'RTG koljena', 35.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (111101, 'Krvna slika', 10.00); -- ++
-insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (19902, 'COVID-19 test', 10.00); -- ++
-select * from dijagnosticki_pregled;
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (10101, 'Spec. pregled endokrinologa', 45.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (11101, 'Spec. pregled kardiologa', 50.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (12201, 'Spec. pregled urologa', 45.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (13301, 'Spec. pregled stomatologa', 45.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (14401, 'Spec. pregled psihijatra', 55.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (15501, 'Spec. pregled ortopeda', 45.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (16601, 'Spec. pregled pedijatra', 40.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (17701, 'Spec. pregled onkologa', 50.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (19901, 'Spec. pregled infektologa', 50.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (13302, 'Dentalni RTG', 30.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (14402, 'Psihijatrijska anamneza', 60.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (17702, 'Ultrazvuk abdomena', 70.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18801, 'CT glave', 140.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18802, 'RTG pluća', 40.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (11102, 'EKG srca', 20.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (18803, 'RTG koljena', 35.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (111101, 'Krvna slika', 10.00);
+insert into dijagnosticki_pregled (IdPregleda, NazivPregleda, CijenaPregleda) values (19902, 'COVID-19 test', 10.00);
+-- select * from dijagnosticki_pregled;
 
 insert into pregledanje (DatumPregleda, JMBDoktora, JMBPacijenta, IdPregleda, Dijagnoza, Misljenje) values ('2022-07-16', '1408987118138', '1211969134934', 12201, 'Urinarna infekcija', NULL);
 insert into pregledanje (DatumPregleda, JMBDoktora, JMBPacijenta, IdPregleda, Dijagnoza, Misljenje) values ('2022-10-31', '1911963129179', '2711019139654', 16601, 'Akutni bakterijski sinuzitis', 'Upala sinusa i povišena temperatura.');
@@ -330,12 +330,12 @@ insert into pregledanje (DatumPregleda, JMBDoktora, JMBPacijenta, IdPregleda, Di
 insert into pregledanje (DatumPregleda, JMBDoktora, JMBPacijenta, IdPregleda, Dijagnoza, Misljenje) values ('2021-08-21', '1404969129462', '1402975106903', 13301, 'Zapaljenje zuba i desni', 'Potreban dentalni RTG.');
 insert into pregledanje (DatumPregleda, JMBDoktora, JMBPacijenta, IdPregleda, Dijagnoza, Misljenje) values ('2021-08-21', '1404969129462', '1402975106903', 13302, 'Bakterijska infekcija korijena zuba', NULL);
 insert into pregledanje (DatumPregleda, JMBDoktora, JMBPacijenta, IdPregleda, Dijagnoza, Misljenje) values ('2020-02-09', '1702977107179', '0111983109487', 19901, 'Akutni streptokokni tonzilitis', NULL);
-select * from pregledanje;
+-- select * from pregledanje;
 
 update pacijent_zadrzan set DatumOtpustanja = '2022-10-18' where JMBPacijenta = '1502973101187';
 update pacijent_zadrzan set DatumOtpustanja = '2020-09-06' where JMBPacijenta = '1108969107983';
 update pacijent_zadrzan set DatumOtpustanja = '2023-02-22' where JMBPacijenta = '1907971101492';
 update pacijent_zadrzan set DatumOtpustanja = '2022-05-30' where JMBPacijenta = '0702998129315';
-select * from pacijent_zadrzan;
+-- select * from pacijent_zadrzan;
 
 

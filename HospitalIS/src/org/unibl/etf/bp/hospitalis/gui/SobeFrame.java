@@ -185,7 +185,7 @@ public class SobeFrame extends JFrame {
 			});
 			btnIzmeniti.setIcon(new ImageIcon(SobeFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Edit_32.png")));
-			btnIzmeniti.setToolTipText("Izmeniti odabranu sobu");
+			btnIzmeniti.setToolTipText("Izijmeniti odabranu sobu");
 			btnIzmeniti.setBounds(68, 0, 58, 58);
 		}
 		return btnIzmeniti;
@@ -268,25 +268,6 @@ public class SobeFrame extends JFrame {
 		}
 		return btnPrihvatiti;
 	}
-
-	/*private JButton getBtnPretraziti() {
-		if (btnPretraziti == null) {
-			btnPretraziti = new JButton("Pretražiti");
-			btnPretraziti.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					if (Utilities.isSearchPatternValid(tfNazivLijeka
-							.getText()))
-						osveziTabelu();
-					else
-						JOptionPane.showMessageDialog(ovaj,
-								"Naziv lijeka nije pravilno popunjen!",
-								"Greška", JOptionPane.ERROR_MESSAGE);
-				}
-			});
-			btnPretraziti.setBounds(274, 37, 100, 23);
-		}
-		return btnPretraziti;
-	}*/
 
 	private JButton getBtnPrikazatiSve() {
 		if (btnPrikazatiSve == null) {

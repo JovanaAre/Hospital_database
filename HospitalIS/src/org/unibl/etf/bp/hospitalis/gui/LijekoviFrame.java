@@ -189,7 +189,7 @@ public class LijekoviFrame extends JFrame {
 			});
 			btnIzmeniti.setIcon(new ImageIcon(LijekoviFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Edit_32.png")));
-			btnIzmeniti.setToolTipText("Izmeniti odabrani lijek");
+			btnIzmeniti.setToolTipText("Izmijeniti odabrani lijek");
 			btnIzmeniti.setBounds(68, 0, 58, 58);
 		}
 		return btnIzmeniti;
@@ -348,8 +348,8 @@ public class LijekoviFrame extends JFrame {
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			table.getColumnModel().getColumn(0).setPreferredWidth(100);
 			table.getColumnModel().getColumn(1).setPreferredWidth(100);
-			table.getColumnModel().getColumn(0).setPreferredWidth(100);
-			table.getColumnModel().getColumn(1).setPreferredWidth(100);
+			table.getColumnModel().getColumn(2).setPreferredWidth(100);
+			table.getColumnModel().getColumn(3).setPreferredWidth(100);
 		}
 		return table;
 	}

@@ -80,7 +80,6 @@ public class DoktorDialog extends JDialog{
 		return false;
 	}
 
-	//za dodavanje i azuriranje 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		setResizable(false);

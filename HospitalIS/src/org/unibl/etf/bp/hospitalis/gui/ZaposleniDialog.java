@@ -130,7 +130,6 @@ public class ZaposleniDialog extends JDialog{
 		return false;
 	}
 
-	//za dodavanje i azuriranje 
 	private void initialize() {
 		setResizable(false);
 		setModalityType(ModalityType.APPLICATION_MODAL);
@@ -186,7 +185,7 @@ public class ZaposleniDialog extends JDialog{
 			contentPanel.add(this.tfEmail);
 		}
 		{
-			JLabel lblDatumRodjenja = new JLabel("Datum rodjenja (format GGGG-MM-DD):");
+			JLabel lblDatumRodjenja = new JLabel("Datum rođenja (format GGGG-MM-DD):");
 			lblDatumRodjenja.setBounds(10, 203, 300, 14);
 			contentPanel.add(lblDatumRodjenja);
 		}
@@ -251,15 +250,6 @@ public class ZaposleniDialog extends JDialog{
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (proveriValidnostPolja()) {
-//							String dateString = tfDatumRodjenja.getText();
-//							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//							Date date = null;
-//							try {
-//							    date = sdf.parse(dateString);
-//							} catch (ParseException e1) {
-//							    // Handle the parsing error
-//							    e1.printStackTrace();
-//							}
 							String dateString = tfDatumRodjenja.getText();
 							java.sql.Date sqlDate = java.sql.Date.valueOf(dateString);
 							Zaposleni zaposleni = new Zaposleni(tfJMB.getText(),

@@ -45,14 +45,11 @@ public class PrepisivanjeFrame extends JFrame{
 	private JButton btnIzmeniti;
 	private JButton btnObrisati;
 	private JButton btnPrihvatiti;
-	// private JLabel lblNazivOdjela;
-	// private JTextField tfNazivOdjela;
 	private JButton btnPretraziti;
 	private JButton btnPrikazatiSve;
 	private JScrollPane scrollPane;
 	private JTable table;
-	// @SuppressWarnings("rawtypes")
-	// private JComboBox cbDoktori;
+
 
 	/**
 	 * Create the frame.
@@ -71,18 +68,7 @@ public class PrepisivanjeFrame extends JFrame{
 	public Prepisivanje getOdabranoPrepisivanje() {
 		return odabranoPrepisivanje;
 	}
-
-	/*private void osveziTabelu() {
-		if (Utilities.isSearchPatternValid(tfNazivOdjela.getText())) {
-			odjeli = Utilities.getDataAccessFactory().getOdjelDataAccess()
-					.odjeli(tfNazivOdjela.getText());
-
-			OdjelTableModel ftm = (OdjelTableModel) table.getModel();
-			ftm.setPodaci(odjeli);
-			ftm.fireTableDataChanged();
-		}
-	}*/
-		
+	
 	private void osveziTabeluZaSve() {
 		
 		prepisivanja = Utilities.getDataAccessFactory().getPrepisivanjeDataAccess()
@@ -145,10 +131,6 @@ public class PrepisivanjeFrame extends JFrame{
 					TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			panelPretraga.setLayout(null);
 			panelPretraga.setPreferredSize(new Dimension(200, 70));
-			//panelPretraga.add(getCbZaposleni());
-	       // panelPretraga.add(getLblDoktori());
-			//panelPretraga.add(getLblNazivOdjela());
-			//panelPretraga.add(getTfNazivOdjela());
 			//panelPretraga.add(getBtnPretraziti());
 			panelPretraga.add(getBtnPrikazatiSve());
 		}
@@ -289,71 +271,6 @@ public class PrepisivanjeFrame extends JFrame{
 		}
 		return btnPrihvatiti;
 	}
-
-	/*private JLabel getLblDoktori() {
-		if (lblDoktori == null) {
-			lblDoktori = new JLabel("Doktori:");
-			lblDoktori.setBounds(10, 20, 254, 14);
-		}
-		return lblDoktori;
-	}
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private JComboBox getCbZaposleni() {
-		if (cbDoktori == null) {
-			cbDoktori = new JComboBox(Utilities.getDataAccessFactory()
-					.getDoktorDataAccess().sviDoktori()
-					.toArray(new Doktor[] {}));
-			cbDoktori.setBounds(10, 37, 254, 20);
-			cbDoktori.setSelectedIndex(-1);
-		}
-		return cbDoktori;
-	}*/
-	
-	/*private JLabel getLblNazivOdjela() {
-		if (lblNazivOdjela == null) {
-			lblNazivOdjela = new JLabel("Naziv odjela:");
-			lblNazivOdjela.setBounds(10, 20, 254, 14);
-		}
-		return lblNazivOdjela;
-	}
-
-	private JTextField getTfNazivOdjela() {
-		if (tfNazivOdjela == null) {
-			tfNazivOdjela = new JTextField();
-			tfNazivOdjela.setText("*");
-			tfNazivOdjela.addKeyListener(new KeyAdapter() {
-				@Override
-				public void keyPressed(KeyEvent arg0) {
-					if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
-						btnPretraziti.doClick();
-				}
-			});
-			tfNazivOdjela.setColumns(10);
-			tfNazivOdjela.setBounds(10, 37, 254, 20);
-		}
-		return tfNazivOdjela;
-	}*/
-
-	
-	/*private JButton getBtnPretraziti() {
-		if (btnPretraziti == null) {
-			btnPretraziti = new JButton("Pretražiti");
-			btnPretraziti.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (Utilities.isSearchPatternValid(tfNazivOdjela
-							.getText()))
-						osveziTabelu();
-					else
-						JOptionPane.showMessageDialog(ovaj,
-								"Naziv odjela nije pravilno popunjen!",
-								"Greška", JOptionPane.ERROR_MESSAGE);
-				}
-			});
-			btnPretraziti.setBounds(538, 36, 100, 23);
-		}
-		return btnPretraziti;
-	}*/
 
 	private JButton getBtnPrikazatiSve() {
 		if (btnPrikazatiSve == null) {

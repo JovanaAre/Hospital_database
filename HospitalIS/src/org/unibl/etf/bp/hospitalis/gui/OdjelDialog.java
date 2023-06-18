@@ -106,7 +106,7 @@ public class OdjelDialog extends JDialog{
 					JOptionPane.ERROR_MESSAGE);		
 		} else if(cbMedicinskiTehnicari.getSelectedIndex() == -1){
 			JOptionPane.showMessageDialog(ovaj,
-					"Glavna medicinska sestra/tehničar nije odabrana!", "Greška",
+					"Glavna medicinska sestra/tehničar nije odabran/a!", "Greška",
 					JOptionPane.ERROR_MESSAGE);	
 		}
 		else
@@ -114,7 +114,6 @@ public class OdjelDialog extends JDialog{
 		return false;
 	}
 
-	//za dodavanje i azuriranje 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		setResizable(false);

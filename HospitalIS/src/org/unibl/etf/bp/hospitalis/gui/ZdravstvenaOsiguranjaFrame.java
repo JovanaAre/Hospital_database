@@ -170,7 +170,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Osiguranje nije odabrano!", "Gre�ka",
+								"Osiguranje nije odabrano!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						ZdravstvenoOsiguranje odabranoOsiguranje = ((ZdravstvenoOsiguranjeTableModel) table
@@ -189,7 +189,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 			});
 			btnIzmeniti.setIcon(new ImageIcon(ZdravstvenaOsiguranjaFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Edit_32.png")));
-			btnIzmeniti.setToolTipText("Izmeniti odabrano osiguranje");
+			btnIzmeniti.setToolTipText("Izmijeniti odabrano osiguranje");
 			btnIzmeniti.setBounds(68, 0, 58, 58);
 		}
 		return btnIzmeniti;
@@ -225,12 +225,12 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 											odabranoOsiguranje.getDavalacOsiguranja())) {
 								osveziTabelu();
 								JOptionPane.showMessageDialog(ovaj,
-										"Osiguranje je uspe�no obrisano!",
+										"Osiguranje je uspješno obrisano!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 							} else
 								JOptionPane.showMessageDialog(ovaj,
-										"Osiguranje nije uspe�no obrisano!",
+										"Osiguranje nije uspješno obrisano!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 						}
@@ -252,7 +252,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Osiguranje nije odabrano!", "Gre�ka",
+								"Osiguranje nije odabrano!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						odabranoOsiguranje = ((ZdravstvenoOsiguranjeTableModel) table.getModel())
@@ -300,7 +300,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 
 	private JButton getBtnPretraziti() {
 		if (btnPretraziti == null) {
-			btnPretraziti = new JButton("Pretra�iti");
+			btnPretraziti = new JButton("Pretražiti");
 			btnPretraziti.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					if (Utilities.isSearchPatternValid(tfDavalacOsiguranja
@@ -309,7 +309,7 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 					else
 						JOptionPane.showMessageDialog(ovaj,
 								"Davalac osiguranja nije pravilno popunjen!",
-								"Gre�ka", JOptionPane.ERROR_MESSAGE);
+								"Greška", JOptionPane.ERROR_MESSAGE);
 				}
 			});
 			btnPretraziti.setBounds(274, 37, 100, 23);
@@ -346,9 +346,9 @@ public class ZdravstvenaOsiguranjaFrame extends JFrame {
 			table = new JTable(new ZdravstvenoOsiguranjeTableModel(zdravstvenaOsiguranja));
 			table.setFillsViewportHeight(true);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			table.getColumnModel().getColumn(0).setPreferredWidth(300);
-			table.getColumnModel().getColumn(1).setPreferredWidth(450);
-			table.getColumnModel().getColumn(1).setPreferredWidth(450);
+			table.getColumnModel().getColumn(0).setPreferredWidth(200);
+			table.getColumnModel().getColumn(1).setPreferredWidth(200);
+			table.getColumnModel().getColumn(1).setPreferredWidth(200);
 		}
 		return table;
 	}

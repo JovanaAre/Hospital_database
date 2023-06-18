@@ -63,13 +63,11 @@ public class DoktorDataAccessImpl implements DoktorDataAccess{
 			ps = conn.prepareStatement(query);
 			ps.setString(1, jmbZaposlenog);
 			rs = ps.executeQuery();
-			//System.out.println(jmbZaposlenog);
 
 			while (rs.next())
 			{
 				retVal.add(new Doktor(new Zaposleni(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
 						rs.getString(6), rs.getDouble(7), rs.getString(8), rs.getString(9)),rs.getString(10)));
-			    // System.out.println(jmbZaposlenog);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

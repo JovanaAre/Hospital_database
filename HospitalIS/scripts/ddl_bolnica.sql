@@ -66,6 +66,11 @@ create table odjel
     references med_sestra_tehnicar (JMB)
 );
 
+/*
+  Mapiranje veznog tipa RADI_NA (M:M tip veze)
+  prema Pravilu 5
+*/
+
 create table radi_na
 (
 	DatumZaposlenja date not null,
@@ -124,14 +129,13 @@ create table pacijent
     references zdravstveno_osiguranje (DavalacOsiguranja)
 );
 
-/* Mapiranje jakog entitetskog tipa SOBA prema Pravilu 1
-   i veznog tipa SMJESTENA_NA (1:M tip veze)
-*/
+-- Mapiranje jakog entitetskog tipa SOBA prema Pravilu 1
+
 create table soba
 (
 	BrojSobe int,
     CijenaSobe decimal(6,2) not null,
-    BrojKreveta int,
+    BrojKreveta int not null,
     primary key (BrojSobe)
 );
 
@@ -183,8 +187,7 @@ create table pacijent_nije_zadrzan
 );
 
 /* Mapiranje slabog entitetskog tipa RACUN prema Pravilu 2
-   (automatski i identifikujuceg veznog tipa PLACA_PACIJENT)
-   i veznog tipa PLACA_OSIGURANJE (1:M tip veze) prema Pravilu 6A
+   (automatski i identifikujuceg veznog tipa PLACA)
 */
 create table racun
 (
@@ -229,9 +232,8 @@ create table prepisivanje
     references lijek (IdLijeka)
 );
 
-/* Mapiranje jakog entitetskog tipa DIJAGNOSTICKI_PREGLED prema Pravilu 1
-   i veznog tipa NUDI (1:M tip veze) prema Pravilu 6A
-*/
+-- Mapiranje jakog entitetskog tipa DIJAGNOSTICKI_PREGLED prema Pravilu 1
+
 create table dijagnosticki_pregled
 (
 	IdPregleda int,

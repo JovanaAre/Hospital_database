@@ -31,7 +31,6 @@ public class GlavniProzor extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu mnAplikacija;
 	private JMenuItem mntmIzlaz;
-	// private JMenu mnSifarnici;
     private JMenu mnTelefoniOdjela;
     private JMenuItem mntmTelefoniOdjela;
 	private JMenu mnOsobljeIOdjeli;
@@ -202,7 +201,7 @@ public class GlavniProzor extends JFrame {
 	
 	private JMenuItem getMntmMedicinskiTehnicari(){
 		if (mntmMedicinskiTehnicari == null) {
-			mntmMedicinskiTehnicari = new JMenuItem("Medicinski tehnicari");
+			mntmMedicinskiTehnicari = new JMenuItem("Medicinski tehničari");
 			mntmMedicinskiTehnicari.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					new MedicinskiTehnicariFrame(false).setVisible(true);

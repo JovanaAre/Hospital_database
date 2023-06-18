@@ -131,7 +131,6 @@ public class PacijentDialog extends JDialog{
 		return false;
 	}
 
-	//za dodavanje i azuriranje 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		setResizable(false);
@@ -177,7 +176,7 @@ public class PacijentDialog extends JDialog{
 			contentPanel.add(this.tfPrezime);
 		}		
 		{
-			JLabel lblDatumRodjenja = new JLabel("Datum rodjenja (format GGGG-MM-DD):");
+			JLabel lblDatumRodjenja = new JLabel("Datum rođenja (format GGGG-MM-DD):");
 			lblDatumRodjenja.setBounds(10, 155, 300, 14);
 			contentPanel.add(lblDatumRodjenja);
 		}
@@ -254,15 +253,6 @@ public class PacijentDialog extends JDialog{
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (proveriValidnostPolja()) {
-//							String dateString = tfDatumRodjenja.getText();
-//							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//							Date date = null;
-//							try {
-//							    date = sdf.parse(dateString);
-//							} catch (ParseException e1) {
-//							    // Handle the parsing error
-//							    e1.printStackTrace();
-//							}
 							String dateString = tfDatumRodjenja.getText();
 							java.sql.Date sqlDate = java.sql.Date.valueOf(dateString);
 							Pacijent pacijenti = new Pacijent(tfJMBPacijenta.getText(),

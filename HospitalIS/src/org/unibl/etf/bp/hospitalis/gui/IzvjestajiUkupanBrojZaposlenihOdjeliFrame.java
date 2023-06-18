@@ -16,8 +16,6 @@ import javax.swing.ListSelectionModel;
 
 import javax.swing.ScrollPaneConstants;
 
-import java.sql.Date;
-
 @SuppressWarnings("serial")
 public class IzvjestajiUkupanBrojZaposlenihOdjeliFrame extends JFrame {
 

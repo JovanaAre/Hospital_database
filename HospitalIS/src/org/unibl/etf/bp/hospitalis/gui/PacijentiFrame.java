@@ -89,7 +89,7 @@ public class PacijentiFrame extends JFrame {
 			ftm.fireTableDataChanged();
 		}
 	}
-    //velicina prve tabele gdje su svi
+	
 	private void initialize() {
 		setTitle("Pacijenti");
 		setBounds(100, 100, 930, 420);
@@ -348,7 +348,6 @@ public class PacijentiFrame extends JFrame {
 		}
 		return scrollPane;
 	}
-	//sirina kolona u tabeli na pocetku
 	private JTable getTable() {
 		if (table == null) {
 			table = new JTable(new PacijentTableModel(pacijenti));
@@ -358,11 +357,11 @@ public class PacijentiFrame extends JFrame {
 			table.getColumnModel().getColumn(1).setPreferredWidth(110);
 			table.getColumnModel().getColumn(2).setPreferredWidth(110);
 			table.getColumnModel().getColumn(3).setPreferredWidth(210);
-			table.getColumnModel().getColumn(4).setPreferredWidth(100);
-			table.getColumnModel().getColumn(5).setPreferredWidth(100);
+			table.getColumnModel().getColumn(4).setPreferredWidth(150);
+			table.getColumnModel().getColumn(5).setPreferredWidth(200);
 			table.getColumnModel().getColumn(6).setPreferredWidth(100);
-			table.getColumnModel().getColumn(7).setPreferredWidth(180);
-			table.getColumnModel().getColumn(8).setPreferredWidth(130);
+			table.getColumnModel().getColumn(7).setPreferredWidth(100);
+			table.getColumnModel().getColumn(8).setPreferredWidth(300);
 			
 		}
 		return table;

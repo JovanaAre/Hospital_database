@@ -32,7 +32,15 @@ public class TelefonOdjela implements Serializable {
 
 	public void setOdjel(Odjel odjel) {
 		this.odjel = odjel;
-	}	
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((odjel == null) ? 0 : odjel.hashCode());
+		return result;
+	}
 
 	@Override
 	public boolean equals(Object obj) {

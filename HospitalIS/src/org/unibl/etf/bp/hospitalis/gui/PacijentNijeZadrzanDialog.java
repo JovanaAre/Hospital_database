@@ -82,7 +82,6 @@ public class PacijentNijeZadrzanDialog extends JDialog{
 		return false;
 	}
 
-	//za dodavanje i azuriranje 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		setResizable(false);

@@ -18,12 +18,6 @@ public class PacijentNijeZadrzan implements Serializable {
 		this.datumDolaska = datumDolaska;
 	}
 	
-	/*public PacijentNijeZadrzan(Pacijent pacijent) {
-		super();
-		this.pacijent = pacijent;
-		this.datumDolaska = new Date(System.currentTimeMillis());
-	}*/
-
 	public Date getDatumDolaska() {
 		return datumDolaska;
 	}

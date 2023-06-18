@@ -87,18 +87,7 @@ public class PacijentNijeZadrzanFrame extends JFrame{
 		
 	}
 	
-	/*private void osveziTabelu() {
-		if (Utilities.isSearchPatternValid(tfJmb.getText())) {
 
-			doktori = Utilities.getDataAccessFactory().getDoktorDataAccess()
-					.doktori(tfJmb.getText());
-
-			DoktorTableModel ftm = (DoktorTableModel) table.getModel();
-			ftm.setPodaci(doktori);
-			ftm.fireTableDataChanged();
-		}
-	}*/
-	
 	private void osveziTabeluZaSve() {
 		
 		nezadrzaniPacijenti = Utilities.getDataAccessFactory().getPacijentNijeZadrzanDataAccess()

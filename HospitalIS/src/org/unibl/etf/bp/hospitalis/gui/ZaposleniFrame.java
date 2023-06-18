@@ -89,7 +89,6 @@ public class ZaposleniFrame extends JFrame {
 			ftm.fireTableDataChanged();
 		}
 	}
-    //velicina prve tabele gdje su svi
 	private void initialize() {
 		setTitle("Zaposleni");
 		setBounds(100, 100, 930, 420);
@@ -179,7 +178,7 @@ public class ZaposleniFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Zaposleni nije odabran!", "Gre�ka",
+								"Zaposleni nije odabran!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						Zaposleni odabraniZaposleni = ((ZaposleniTableModel) table
@@ -190,7 +189,7 @@ public class ZaposleniFrame extends JFrame {
 						if (zd.getDialogResult().equalsIgnoreCase("OK")) {
 							osveziTabeluZaSve();
 							JOptionPane.showMessageDialog(ovaj,
-									"Zaposleni je uspje�no a�uriran!", "Poruka",
+									"Zaposleni je uspješno ažuriran!", "Poruka",
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 					}
@@ -211,7 +210,7 @@ public class ZaposleniFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Zaposleni nije odabran!", "Gre�ka",
+								"Zaposleni nije odabran!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						Zaposleni odabraniZaposleni = ((ZaposleniTableModel) table
@@ -234,12 +233,12 @@ public class ZaposleniFrame extends JFrame {
 											odabraniZaposleni.getJmb())) {
 								osveziTabeluZaSve();
 								JOptionPane.showMessageDialog(ovaj,
-										"Zaposleni je uspje�no obrisan!",
+										"Zaposleni je uspješno obrisan!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 							} else
 								JOptionPane.showMessageDialog(ovaj,
-										"Zaposleni nije uspe�no obrisan!",
+										"Zaposleni nije uspješno obrisan!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 						}
@@ -261,7 +260,7 @@ public class ZaposleniFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Zaposleni nije odabran!", "Gre�ka",
+								"Zaposleni nije odabran!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						odabraniZaposleni = ((ZaposleniTableModel) table.getModel())
@@ -309,7 +308,7 @@ public class ZaposleniFrame extends JFrame {
 
 	private JButton getBtnPretraziti() {
 		if (btnPretraziti == null) {
-			btnPretraziti = new JButton("Pretra�iti");
+			btnPretraziti = new JButton("Pretražiti");
 			btnPretraziti.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (Utilities.isSearchPatternValid(tfJMB
@@ -318,7 +317,7 @@ public class ZaposleniFrame extends JFrame {
 					else
 						JOptionPane.showMessageDialog(ovaj,
 								"JMB zaposlenog nije pravilno popunjen!",
-								"Gre�ka", JOptionPane.ERROR_MESSAGE);
+								"Greška", JOptionPane.ERROR_MESSAGE);
 				}
 			});
 			btnPretraziti.setBounds(538, 36, 100, 23);
@@ -348,7 +347,6 @@ public class ZaposleniFrame extends JFrame {
 		}
 		return scrollPane;
 	}
-	//sirina kolona u tabeli na pocetku
 	private JTable getTable() {
 		if (table == null) {
 			table = new JTable(new ZaposleniTableModel(zaposleni));
@@ -362,7 +360,7 @@ public class ZaposleniFrame extends JFrame {
 			table.getColumnModel().getColumn(5).setPreferredWidth(100);
 			table.getColumnModel().getColumn(6).setPreferredWidth(100);
 			table.getColumnModel().getColumn(7).setPreferredWidth(180);
-			table.getColumnModel().getColumn(8).setPreferredWidth(130);
+			table.getColumnModel().getColumn(8).setPreferredWidth(250);
 			
 		}
 		return table;

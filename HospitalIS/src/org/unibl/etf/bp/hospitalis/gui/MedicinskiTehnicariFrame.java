@@ -98,7 +98,7 @@ public class MedicinskiTehnicariFrame extends JFrame{
 	}
 
 	private void initialize() {
-		setTitle("Medicinski tehnicari");
+		setTitle("Medicinski tehničari");
 		setBounds(100, 100, 815, 420);
 		setLocationRelativeTo(null);
 		this.contentPane = new JPanel();
@@ -166,14 +166,14 @@ public class MedicinskiTehnicariFrame extends JFrame{
 					if (md.getDialogResult().equalsIgnoreCase("OK")) {
 						osveziTabeluZaSve();
 						JOptionPane.showMessageDialog(ovaj,
-								"Novi tehničar je uspješno dodan!", "Poruka",
+								"Novi medicinski tehničar je uspješno dodan!", "Poruka",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			});
 			btnDodati.setIcon(new ImageIcon(MedicinskiTehnicariFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Add_32.png")));
-			btnDodati.setToolTipText("Dodati novog medicinskog tehnicara");
+			btnDodati.setToolTipText("Dodati novog medicinskog tehničara");
 			btnDodati.setBounds(0, 0, 58, 58);
 		}
 		return btnDodati;
@@ -186,7 +186,7 @@ public class MedicinskiTehnicariFrame extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Tehničar nije odabran!", "Greška",
+								"Medicinski tehničar nije odabran!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						MedicinskiTehnicar odabraniMedicinskiTehnicar = ((MedicinskiTehnicarTableModel) table
@@ -197,7 +197,7 @@ public class MedicinskiTehnicariFrame extends JFrame{
 						if (md.getDialogResult().equalsIgnoreCase("OK")) {
 							osveziTabeluZaSve();
 							JOptionPane.showMessageDialog(ovaj,
-									"Tehničar je uspješno ažuriran!", "Poruka",
+									"Medicinski tehničar je uspješno ažuriran!", "Poruka",
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 					}
@@ -218,7 +218,7 @@ public class MedicinskiTehnicariFrame extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					if (table.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(ovaj,
-								"Tehničar nije odabran!", "Greška",
+								"Medicinski tehničar nije odabran!", "Greška",
 								JOptionPane.ERROR_MESSAGE);
 					} else {
 						MedicinskiTehnicar odabraniMedicinskiTehnicar = ((MedicinskiTehnicarTableModel) table
@@ -227,7 +227,7 @@ public class MedicinskiTehnicariFrame extends JFrame{
 						int odabir = JOptionPane
 								.showOptionDialog(
 										ovaj,
-										"Da li ste sigurni da želite obrisati odabranog tehničara?",
+										"Da li ste sigurni da želite obrisati odabranog medicinskog tehničara?",
 										"Potvrda brisanja",
 										JOptionPane.YES_NO_OPTION,
 										JOptionPane.QUESTION_MESSAGE, null,
@@ -240,12 +240,12 @@ public class MedicinskiTehnicariFrame extends JFrame{
 											odabraniMedicinskiTehnicar.getZaposleni().getJmb())) {
 								osveziTabeluZaSve();
 								JOptionPane.showMessageDialog(ovaj,
-										"Tehničar je uspješno obrisan!",
+										"Medicinski tehničar je uspješno obrisan!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 							} else
 								JOptionPane.showMessageDialog(ovaj,
-										"Tehničar nije uspješno obrisan!",
+										"Medicinski tehničar nije uspješno obrisan!",
 										"Poruka",
 										JOptionPane.INFORMATION_MESSAGE);
 						}
@@ -282,7 +282,7 @@ public class MedicinskiTehnicariFrame extends JFrame{
 			});
 			btnPrihvatiti.setIcon(new ImageIcon(MedicinskiTehnicariFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Check_32.png")));
-			btnPrihvatiti.setToolTipText("Prihvatiti odabranog tehničara");
+			btnPrihvatiti.setToolTipText("Prihvatiti odabranog medicinskog tehničara");
 			btnPrihvatiti.setBounds(204, 0, 58, 58);
 		}
 		return btnPrihvatiti;
@@ -354,7 +354,7 @@ public class MedicinskiTehnicariFrame extends JFrame{
 			table.getColumnModel().getColumn(1).setPreferredWidth(250);	
 			table.getColumnModel().getColumn(2).setPreferredWidth(250);
 			table.getColumnModel().getColumn(3).setPreferredWidth(250);	
-			table.getColumnModel().getColumn(4).setPreferredWidth(250);	
+			table.getColumnModel().getColumn(4).setPreferredWidth(350);	
 		}
 		return table;
 	}

@@ -58,8 +58,7 @@ public class MedicinskiTehnicarDialog extends JDialog{
 		cbZaposleni.setSelectedItem(medicinskiTehnicar.getZaposleni());
 		cbZaposleni.setEnabled(false);
 		cbStrucnaSprema.setSelectedItem(medicinskiTehnicar.getStrucnaSprema());
-		// tfStrucnaSprema.setText(medicinskiTehnicar.getStrucnaSprema());
-		
+	
 	}
 
 	public String getDialogResult() {
@@ -72,11 +71,7 @@ public class MedicinskiTehnicarDialog extends JDialog{
 			JOptionPane.showMessageDialog(ovaj,
 					"Zaposleni nije odabran!", "Greška",
 					JOptionPane.ERROR_MESSAGE);		
-		} /*else if (tfStrucnaSprema.getText().length() == 0) {
-			JOptionPane.showMessageDialog(ovaj,
-					"Strucna sprema nije popunjena!", "Greška",
-					JOptionPane.ERROR_MESSAGE);*/
-		 else if (cbStrucnaSprema.getSelectedIndex() == -1) {
+		} else if (cbStrucnaSprema.getSelectedIndex() == -1) {
 				JOptionPane.showMessageDialog(ovaj, "Stručna sprema nije odabrana!",
 						"Greška", JOptionPane.ERROR_MESSAGE);
 		}
@@ -85,7 +80,6 @@ public class MedicinskiTehnicarDialog extends JDialog{
 		return false;
 	}
 
-	//za dodavanje i azuriranje 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		setResizable(false);
@@ -118,14 +112,7 @@ public class MedicinskiTehnicarDialog extends JDialog{
 			cbStrucnaSprema.setModel(new DefaultComboBoxModel(new String[] {"medicinska sestra/tehničar", "viša medicinska sestra/tehničar", "diplomirana medicinska sestra/tehničar"}));
 			cbStrucnaSprema.setBounds(10, 73, 300, 20);
 			contentPanel.add(cbStrucnaSprema);
-		}
-		/*{
-			this.tfStrucnaSprema = new JTextField();
-			this.tfStrucnaSprema.setColumns(10);
-			this.tfStrucnaSprema.setBounds(10, 73, 300, 20);
-			contentPanel.add(this.tfStrucnaSprema);
-		}*/
-						
+		}			
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -145,7 +132,7 @@ public class MedicinskiTehnicarDialog extends JDialog{
 										.getMedicinskiTehnicarDataAccess().azurirajMedicinskogTehnicara(medicinskiTehnicar);
 								if (!rezultat)
 									JOptionPane.showMessageDialog(ovaj,
-											"Tehničar nije uspješno ažuriran!",
+											"Medicinski tehničar nije uspješno ažuriran!",
 											"Poruka",
 											JOptionPane.INFORMATION_MESSAGE);
 							} else {
@@ -153,7 +140,7 @@ public class MedicinskiTehnicarDialog extends JDialog{
 										.getMedicinskiTehnicarDataAccess().dodajMedicinskogTehnicara(medicinskiTehnicar);
 								if (!rezultat)
 									JOptionPane.showMessageDialog(ovaj,
-											"Tehničar nije uspješno dodan!",
+											"Medicinski tehničar nije uspješno dodan!",
 											"Poruka",
 											JOptionPane.INFORMATION_MESSAGE);
 							}

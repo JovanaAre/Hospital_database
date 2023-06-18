@@ -189,7 +189,7 @@ public class DijagnostickiPreglediFrame extends JFrame {
 			});
 			btnIzmeniti.setIcon(new ImageIcon(DijagnostickiPreglediFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Edit_32.png")));
-			btnIzmeniti.setToolTipText("Izmeniti odabrani pregled");
+			btnIzmeniti.setToolTipText("Izmijeniti odabrani pregled");
 			btnIzmeniti.setBounds(68, 0, 58, 58);
 		}
 		return btnIzmeniti;
@@ -348,7 +348,7 @@ public class DijagnostickiPreglediFrame extends JFrame {
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			table.getColumnModel().getColumn(0).setPreferredWidth(100);
 			table.getColumnModel().getColumn(1).setPreferredWidth(100);
-			table.getColumnModel().getColumn(0).setPreferredWidth(100);
+			table.getColumnModel().getColumn(2).setPreferredWidth(100);
 		}
 		return table;
 	}	

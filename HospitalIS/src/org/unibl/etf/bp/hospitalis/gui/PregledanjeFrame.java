@@ -208,7 +208,7 @@ public class PregledanjeFrame extends JFrame{
 						int odabir = JOptionPane
 								.showOptionDialog(
 										ovaj,
-										"Da li ste sigurni da želite obrisati odabrano Pregledanje?",
+										"Da li ste sigurni da želite obrisati odabrano pregledanje?",
 										"Potvrda brisanja",
 										JOptionPane.YES_NO_OPTION,
 										JOptionPane.QUESTION_MESSAGE, null,
@@ -266,7 +266,7 @@ public class PregledanjeFrame extends JFrame{
 			});
 			btnPrihvatiti.setIcon(new ImageIcon(PregledanjeFrame.class
 					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Check_32.png")));
-			btnPrihvatiti.setToolTipText("Prihvatiti odabrano Pregledanje");
+			btnPrihvatiti.setToolTipText("Prihvatiti odabrano pregledanje");
 			btnPrihvatiti.setBounds(204, 0, 58, 58);
 		}
 		return btnPrihvatiti;
@@ -306,9 +306,9 @@ public class PregledanjeFrame extends JFrame{
 			table.getColumnModel().getColumn(2).setPreferredWidth(150);
 			table.getColumnModel().getColumn(3).setPreferredWidth(150);	
 			table.getColumnModel().getColumn(4).setPreferredWidth(150);
-			table.getColumnModel().getColumn(5).setPreferredWidth(150);
+			table.getColumnModel().getColumn(5).setPreferredWidth(300);
 			table.getColumnModel().getColumn(6).setPreferredWidth(250);
-			table.getColumnModel().getColumn(7).setPreferredWidth(250);
+			table.getColumnModel().getColumn(7).setPreferredWidth(400);
 		}
 		return table;
 	}

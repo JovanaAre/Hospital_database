@@ -205,48 +205,6 @@ public class ZaposleniNaOdjelimaFrame extends JFrame {
 		return btnDodati;
 	}
 
-	/*private JButton getBtnIzmeniti() {
-		if (btnIzmeniti == null) {
-			btnIzmeniti = new JButton("");
-			btnIzmeniti.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (table.getSelectedRow() == -1) {
-						JOptionPane.showMessageDialog(ovaj,
-								"Zaposleni nije odabran!", "Greška",
-								JOptionPane.ERROR_MESSAGE);
-					} else {
-						PredmetNaStudijskomProgramu odabraniPredmetNaSP = ((PlanIProgramTableModel) table
-								.getModel())
-								.getPredmetNaStudijskomProgramuAtRow(table
-										.getSelectedRow());
-						final PlanIProgramDialog ppd = new PlanIProgramDialog(
-								odabraniPredmetNaSP);
-						ppd.addWindowListener(new WindowAdapter() {
-							@Override
-							public void windowClosing(WindowEvent e) {
-								if (ppd.getDialogResult()
-										.equalsIgnoreCase("OK")) {
-									osveziTabelu();
-									JOptionPane.showMessageDialog(ovaj,
-											"Predmet je uspešno ažuriran!",
-											"Poruka",
-											JOptionPane.INFORMATION_MESSAGE);
-								}
-							}
-						});
-						ppd.setVisible(true);
-					}
-				}
-			});
-			btnIzmeniti.setIcon(new ImageIcon(PlanIProgramFrame.class
-					.getResource(Utilities.IMAGE_RESOURCES_PATH + "Edit_32.png")));
-			btnIzmeniti
-					.setToolTipText("Izmeniti odabrani predmet na studijskom programu");
-			btnIzmeniti.setBounds(68, 0, 58, 58);
-		}
-		return btnIzmeniti;
-	}*/
-
 	private JButton getBtnObrisati() {
 		if (btnObrisati == null) {
 			btnObrisati = new JButton("");

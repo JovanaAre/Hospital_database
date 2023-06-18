@@ -2,7 +2,6 @@ package org.unibl.etf.bp.hospitalis.data;
 
 import java.util.List;
 
-import org.unibl.etf.bp.hospitalis.entity.Lijek;
 import org.unibl.etf.bp.hospitalis.entity.Soba;
 
 public interface SobaDataAccess {
